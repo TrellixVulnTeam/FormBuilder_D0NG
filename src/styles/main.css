@@ -1,0 +1,158 @@
+* {
+  padding: 0;
+  color: #000000;
+  margin: 0;
+}
+
+@media print {
+  footer {
+    page-break-after: always;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.pdfContainer {
+  width: 50%;
+  margin: 1.5rem;
+  text-align: center;
+  padding: 2.5rem;
+  background: linear-gradient(to left top, #ebebeb, rgba(133, 161, 255));
+  box-shadow: inset 2px 2px 1px rgba(251, 251, 254, 0.6),
+    inset -2px -2px 1px rgba(251, 251, 254, 0.2);
+  border-radius: 2rem;
+  z-index: 2;
+  margin: 0 auto;
+}
+/* Styles for the header */
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Login {
+  max-width: 300px;
+  max-height: 300px;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.title {
+  padding-left: 2.5%;
+  padding-top: 0.5%;
+}
+
+.title h1,
+.title h3 {
+  color: rgb(26, 67, 204);
+}
+
+.main-page {
+  text-align: center;
+}
+
+/* Styles for the nav */
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  list-style: none;
+  width: 100%;
+  margin: 0 0 0 0;
+}
+
+.nav li {
+  font-size: 1.2em;
+  padding: 0.6em;
+  list-style: none;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: none;
+  font-weight: bolder;
+}
+
+.nav li:hover {
+  transition: 0.5s ease;
+  color: rgb(51, 89, 214);
+}
+
+/* Style of the input  */
+
+.inputBox {
+  justify-content: center;
+}
+
+.inputBox h2 {
+  font-size: 1.2em;
+  color: black;
+  border: 0;
+  font-weight: bold;
+  margin-bottom: 0.76em;
+  padding-top: 0.75em;
+}
+input {
+  width: 35%;
+  border-radius: 4px;
+  border: 2px solid #f0f0f0;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+/* Buttons */
+
+.buttons-box {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-self: center;
+  margin: auto;
+}
+
+.submit,
+.print {
+  margin: 20px;
+  width: 35%;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 800;
+  box-shadow: none;
+  border-width: 0;
+  padding: 0.4em;
+}
+.submit {
+  background-color: rgb(231, 106, 106);
+}
+
+.print {
+  background-color: rgb(106, 135, 231);
+}
+
+.completeForm {
+  width: 50%;
+  margin: 1.5rem;
+  text-align: center;
+  padding: 2.5rem;
+  background: linear-gradient(to left top, #ebebeb, rgba(133, 161, 255));
+  box-shadow: inset 2px 2px 1px rgba(251, 251, 254, 0.6),
+    inset -2px -2px 1px rgba(251, 251, 254, 0.2);
+  border-radius: 2rem;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+}
