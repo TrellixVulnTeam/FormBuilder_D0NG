@@ -15,9 +15,11 @@ const FormReferences = (props) => {
   };
 
   return (
-    <div className="completeForm">
+    <div style={{
+      overflowY: "scroll", maxHeight: "75vh", width: "100%"
+    }}>
       {createReferences(references)}
-      <div className="buttons-box">
+      < div className="buttons-box" >
         <div
           className="submit"
           style={{ backgroundColor: "rgb(103,227,130)" }}
@@ -25,16 +27,8 @@ const FormReferences = (props) => {
         >
           Add Reference
         </div>
-      </div>
-      <div className="buttons-box">
-        <div className="submit" onClick={backPage}>
-          Back
-        </div>
-        <div className="submit" onClick={nextPage}>
-          Next
-        </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

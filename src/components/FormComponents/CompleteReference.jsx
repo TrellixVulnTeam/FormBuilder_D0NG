@@ -1,9 +1,26 @@
 import { InputReference } from "./Inputs";
 import { useState } from "react";
+import styled from "styled-components";
+
+const FormCard = styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background: linear-gradient(
+      to left top,
+      rgba(255,255,255,0.8),
+      rgba(255,255,255,0.2)
+    );
+    border-radius: 1rem;
+    margin:2rem;
+    padding:2rem;
+    box-shadow: 6px 6px 20px rgba(122,122,122,0.2)
+
+`
 
 export const CompleteReference = (props) => {
   return (
-    <div>
+    <FormCard>
       <InputReference
         title="Name of Reference"
         value={props.references["name"]}
@@ -49,6 +66,6 @@ export const CompleteReference = (props) => {
           Delete Reference
         </div>
       </div>
-    </div>
+    </FormCard>
   );
 };

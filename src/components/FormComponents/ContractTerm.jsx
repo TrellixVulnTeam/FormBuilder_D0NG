@@ -11,7 +11,7 @@ const ContractTerm = (props) => {
   };
   return (
     <div>
-      <div className="completeForm">
+      <div>
         <h1> Contract Term</h1>
         <p>Choose the type of contract</p>
         <br></br>
@@ -21,14 +21,14 @@ const ContractTerm = (props) => {
           valueSelect={valueSelect}
         ></CheckBox>
         <br></br>
-        {valueSelect == "option2" ? (
+        {valueSelect == "option1" ? (
           <Input
             title="Write the specific date (The way you write it will be shown)"
             value={props.state.timeofContract}
             onChange={props.handleForm}
             name="timeofContract"
           ></Input>
-        ) : valueSelect == "option1" ? (
+        ) : valueSelect == "option2" ? (
           <Input
             title="Write the value of x weeks"
             value={props.state.timeofContract}

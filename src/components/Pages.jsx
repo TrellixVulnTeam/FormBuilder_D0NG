@@ -873,7 +873,7 @@ export const Page19 = (props) => {
             Position
           </div>
           {members.map((e, index) => (
-            <div className="grid-itemMembers">{e}</div>
+            <div className="m2-8_grid-item">{e}</div>
           ))}
         </div>
         <h3>3.0 SCOPE OF WORK</h3>
@@ -893,6 +893,140 @@ export const Page19 = (props) => {
   );
 };
 
+export const Page19B = (props) => {
+
+  const plugins = [{
+    name: "Imagify",
+    cost1: 100.00,
+    cost2: 126.00,
+  },
+  {
+    name: "Kadence Membership Bundle (Kadence Blocks, Pro Theme)",
+    cost1: 169.00,
+    cost2: 213.00,
+  },
+  {
+    name: "MonsterInsights Pro ",
+    cost1: 100.00,
+    cost2: 126.00,
+  },
+  {
+    name: "SVG Support ",
+    cost1: 0.00,
+    cost2: "",
+  },
+  {
+    name: "The Events calendar",
+    cost1: 100.00,
+    cost2: 126.00
+  },
+  {
+    name: "wA11y",
+    cost1: 0.00,
+    cost2: ""
+  },
+  {
+    name: "Wordfence Security Premium",
+    cost1: 100.00,
+    cost2: 126.00
+  },
+  {
+    name: "WP Rocket",
+    cost1: 50.00,
+    cost2: 63.00
+  },
+  {
+    name: "WP Forms",
+    cost1: 100.00,
+    cost2: 126.00
+  },
+  {
+    name: "Yoast Local SEO",
+    cost1: 69.00,
+    cost2: 87.00
+  },
+  {
+    name: "Yoast Duplicate Post",
+    cost1: 0.00,
+    cost2: ""
+  },
+  {
+    name: "Yoast SEO",
+    cost1: 0.00,
+    cost2: ""
+  },
+  {
+    name: "Yoast SEO Premium",
+    cost1: 89.00,
+    cost2: 112.00
+  },
+  {
+    name: "Yoast Test Helper",
+    cost1: 0.00,
+    cost2: ""
+  }]
+
+  console.log(plugins[0].cost1)
+  const sumCosts1 = plugins.reduce((acum, obj) => acum + (typeof (obj.cost1) === 'string' ? 0 : obj.cost1), 0);
+  console.log(plugins)
+  const sumCosts2 = plugins.reduce((acum, obj) => acum + (typeof (obj.cost2) === 'string' ? 0 : obj.cost2), 0)
+
+
+  return (
+    <div>
+      <div className="body">
+        <FormHeader index={18}></FormHeader>
+        <div className="text">
+          <br></br>
+          <h3>3.7 BEST PRACTICES PLUGINS & LICENSING</h3>
+          <p>TRS best practices include several plugins to keep the Village of Harrison Hot Springs
+            website secure, speedy, and accessible. Below is a list of our suggested build for your
+            website.</p>
+          <div className="m2-8b_grid-container">
+            <div
+              className="m2-8_grid-item"
+              style={{
+                backgroundColor: "rgb(178,204,243)",
+                fontSize: "0.85rem",
+                fontWeight: "600",
+              }}
+            >
+              PLUGIN
+            </div>
+            <div
+              className="m2-8_grid-item"
+              style={{
+                backgroundColor: "rgb(178,204,243)",
+                fontSize: "0.85rem",
+                fontWeight: "600",
+              }}
+            >
+              YEARLY COST*
+            </div>
+            {plugins.map((e, index) => (
+              <>
+                <div className="m2-8_grid-item">{e.name}</div>
+                <div className="m2-8_grid-item">{e.cost1}.00 {e.cost2 !== "" ? `  //~ $ ${e.cost2}.00 CAD` : ""}</div>
+              </>
+            ))}
+            <div className="m2-8_grid-item"><strong> TOTAL / YEAR </strong></div>
+            <div className="m2-8_grid-item">{sumCosts1}.00 //~ {sumCosts2}</div>
+          </div>
+          <br />
+          <strong>*First year plugin costs are included in all TRS development quotes. These costs are
+            representative of recurring yearly subscriptions for premium plugins. If The Village
+            of Harrison Hot Springs opts to host with TRS solution, these costs will be handled
+            directly by TRS as part of our managed hosting solution.</strong>
+        </div>
+        <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
+      </div>
+    </div>
+  );
+
+
+
+}
+
 export const Page20 = (props) => {
   // COMPLETE WITH THE DYNAMIC PART
 
@@ -908,8 +1042,8 @@ export const Page20 = (props) => {
           {props.typeofContract == "option1"
             ? ` at least ${props.timeofContract} weeks`
             : props.typeofContract == "option2"
-            ? `on ${props.timeofContract}`
-            : "UNCOMPLETED"}{" "}
+              ? `on ${props.timeofContract}`
+              : "UNCOMPLETED"}{" "}
           after the contract is signed and terms are agreed to. The contract
           will be deemed complete and the beginning of the warranty period will
           commence on the go-live date of the new website.

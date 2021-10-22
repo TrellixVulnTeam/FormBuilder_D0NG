@@ -3,10 +3,9 @@ import "../styles/main.css";
 import * as Pages from "./Pages";
 
 export class FormToPrint extends Component {
-  //this method is used for the references if there are more than two
-  //we will need to put it in two different pages
 
   render() {
+
     const {
       shortName,
       longName,
@@ -16,6 +15,7 @@ export class FormToPrint extends Component {
       typeofContract,
       timeofContract,
     } = this.props.values;
+
     return (
       <div>
         <Pages.FirstPage
@@ -56,6 +56,9 @@ export class FormToPrint extends Component {
           typeofContract={typeofContract}
           timeofContract={timeofContract}
         />
+        <Pages.Page19B projectName={projectName} longName={longName}
+          typeofContract={typeofContract}
+          timeofContract={timeofContract} />
         <Pages.Page20
           projectName={projectName}
           longName={longName}

@@ -11,6 +11,63 @@ import { useState } from "react";
 import { FormToPrint } from "./components/FormToPrint";
 import { render } from "@testing-library/react";
 import GeneralInformation from "./components/FormComponents/GeneralInformation";
+import styled from "styled-components";
+import Circle from "./components/FormComponents/Circle"
+import { GlassButton } from "./components/FormComponents/GlassButton";
+
+
+const Main = styled.main`
+    min-height: 100vh;
+    background: linear-gradient(
+      to right top,
+      #65dfc9,
+      #6cdbeb
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:-6;
+`
+
+const Glass = styled.div`
+  width: 70%;
+  min-height: 80vh;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0.1)
+  );
+  border-radius: 2rem;
+  z-index: 2;
+  backdrop-filter: blur(2rem);
+  display:flex;
+  margin:1rem;
+  max-height: 100vh;
+`
+
+const Display = styled.div`
+      position: relative;
+      flex:2;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-evenly;
+      align-items:center;
+      height: 100%;
+`
+
+
+const Title = styled.h1`
+    font-size:3rem;
+    opacity:0.8;
+    color: rgb(26,67,204);;
+    margin:1rem;
+
+`
+
+const Icon = styled.div`
+    color: red;
+
+`
 
 function App() {
   //Functions for the pdf printer
@@ -20,6 +77,7 @@ function App() {
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
+
 
   //State will handle all the general information
   // the form
@@ -75,9 +133,9 @@ function App() {
 
   const addReference = () => {
     if (
-      (references.length == 0 || references.length <= 5) &&
-      references[references.length - 1]["name"] != ""
-    ) {
+      (references.length == 0) || ((references.length > 0 || references.length <= 5) &&
+        references[references.length - 1]["name"] != ""
+      )) {
       let array = [
         ...references,
         {
@@ -122,40 +180,54 @@ function App() {
     setMember(array);
   };
 
+
+  // Options for the nav bar
+  const options = ["General Information", "References", "Team Members", "Contract Term", "Pricing"];
+
+
   return (
     <div className="container">
       <header>
-          <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-          <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
-            rel="stylesheet"
-          ></link>
-          <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-          <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap"
-            rel="stylesheet"
-          ></link>
-          <button onClick={handlePrint}>Print this out!</button>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+          rel="stylesheet"
+        ></link>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap"
+          rel="stylesheet"
+        ></link>
+        <button onClick={handlePrint}>Print this out!</button>
       </header>
       <form className="main-page">
         <Header />
-        <Nav />
-        <main>
-          <Form
-            state={state}
-            references={references}
-            teamMembers={teamMembers}
-            change={handleChange}
-            handleReference={handleReference}
-            deleteReference={deleteReference}
-            addReference={addReference}
-            members={members}
-            submitMember={submitMember}
-            deleteMember={deleteMember}
-          />
-        </main>
+        {/* <Nav /> */}
+        <Main>
+          <Glass>
+            <Nav options={options} />
+            <Display>
+              <Title>{options[0]}</Title>
+              <Icon />
+              <Form
+                state={state}
+                references={references}
+                teamMembers={teamMembers}
+                change={handleChange}
+                handleReference={handleReference}
+                deleteReference={deleteReference}
+                addReference={addReference}
+                members={members}
+                submitMember={submitMember}
+                deleteMember={deleteMember}
+              />
+            </Display>
+          </Glass>
+        </ Main>
+        <Circle top="10%" right="10%" />
+        <Circle top="95%" right="75%" />
       </form>
       <FormToPrint
         ref={componentRef}

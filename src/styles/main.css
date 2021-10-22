@@ -10,10 +10,6 @@
   }
 }
 
-main {
-  display: flex;
-  justify-content: center;
-}
 
 .container {
   background-color: #ffffff;
@@ -47,62 +43,13 @@ header {
   padding-bottom: 1%;
 }
 
-.title {
-  padding-left: 2.5%;
-  padding-top: 0.5%;
-}
-
-.title h1,
-.title h3 {
-  color: rgb(26, 67, 204);
-}
-
 .main-page {
   text-align: center;
 }
 
-/* Styles for the nav */
-
-.nav {
-  display: flex;
-  flex-direction: row;
-  cursor: pointer;
-  list-style: none;
-  width: 100%;
-  margin: 0 0 0 0;
-}
-
-.nav li {
-  font-size: 1.2em;
-  padding: 0.6em;
-  list-style: none;
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  margin: none;
-  font-weight: bolder;
-}
-
-.nav li:hover {
-  transition: 0.5s ease;
-  color: rgb(51, 89, 214);
-}
-
 /* Style of the input  */
 
-.inputBox {
-  justify-content: center;
-}
 
-.inputBox h2 {
-  font-size: 1.2em;
-  color: black;
-  border: 0;
-  font-weight: bold;
-  margin-bottom: 0.76em;
-  padding-top: 0.75em;
-}
 input {
   width: 35%;
   border-radius: 4px;
@@ -115,7 +62,7 @@ input {
 /* Buttons */
 
 .buttons-box {
-  width: 50%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -141,18 +88,4 @@ input {
 
 .print {
   background-color: rgb(106, 135, 231);
-}
-
-.completeForm {
-  width: 50%;
-  margin: 1.5rem;
-  text-align: center;
-  padding: 2.5rem;
-  background: linear-gradient(to left top, #ebebeb, rgba(133, 161, 255));
-  box-shadow: inset 2px 2px 1px rgba(251, 251, 254, 0.6),
-    inset -2px -2px 1px rgba(251, 251, 254, 0.2);
-  border-radius: 2rem;
-  z-index: 2;
-  align-items: center;
-  justify-content: center;
 }

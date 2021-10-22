@@ -1,8 +1,8 @@
 import { Input } from "../FormComponents/Inputs";
-
+import { GlassButton } from "./GlassButton";
 const GeneralInformation = (props) => {
   return (
-    <div className="completeForm">
+    <div>
       <Input
         title="Name of the project"
         value={props.state.projectName}
@@ -33,12 +33,12 @@ const GeneralInformation = (props) => {
         onChange={props.change}
         name="address"
       ></Input>
-      <div className="buttons-box">
+      {/* <div className="buttons-box">
         <div className="submit" onClick={props.nextPage}>
           Next
         </div>
         <h1>{props.page}</h1>
-      </div>
+      </div> */}
     </div>
   );
 };
