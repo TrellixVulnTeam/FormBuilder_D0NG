@@ -1,6 +1,7 @@
-import { InputReference } from "./Inputs";
+import { InputReference } from "../StyledComponents/Inputs";
 import { useState } from "react";
 import styled from "styled-components";
+import { ClassicButton } from "../StyledComponents/Buttons";
 
 const FormCard = styled.div`
     display:flex;
@@ -58,6 +59,11 @@ export const CompleteReference = (props) => {
       ></InputReference>
 
       <div className="buttons-box">
+        <ClassicButton color="rgb(103, 227, 130)"
+          onClick={props.deleteReference()}
+          id={props.references["id"]}
+        >Delete Reference
+        </ClassicButton>
         <div
           className="submit"
           id={props.references["id"]}

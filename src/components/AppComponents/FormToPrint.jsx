@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "../styles/main.css";
-import * as Pages from "./Pages";
+import "../../styles/main.css";
+import * as Pages from "../FormToPrintComponents/Pages";
 
 export class FormToPrint extends Component {
 

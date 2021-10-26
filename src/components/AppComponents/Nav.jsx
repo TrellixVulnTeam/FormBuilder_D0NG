@@ -44,13 +44,18 @@ const H2 = styled.h2`
 const Nav = (props) => {
 
 
+  const handlenmbPage = (i) => {
+    console.log(i);
+    props.setnmbPage(i);
+  }
+
   return (
     <NavBar>
       <div style={{ display: "flex" }}>
         <H2 color>Form</H2><H2>Builder</H2>
       </div>
       <ul>
-        {props.options.map(e => <Li>{e}</Li>)}
+        {props.options.map((e, i) => <Li onClick={() => handlenmbPage(i + 1)}>{e}</Li>)}
       </ul>
     </NavBar >
   );

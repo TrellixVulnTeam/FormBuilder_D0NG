@@ -1,19 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Form from "./components/Form";
+import Form from "./components/AppComponents/Form";
 import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-import Header from "./components/Header";
+import Header from "./components/AppComponents/Header";
 import "./styles/main.css";
-import Nav from "./components/Nav";
+import Nav from "./components/AppComponents/Nav";
 import { useState } from "react";
-import { FormToPrint } from "./components/FormToPrint";
+import { FormToPrint } from "./components/AppComponents/FormToPrint";
 import { render } from "@testing-library/react";
 import GeneralInformation from "./components/FormComponents/GeneralInformation";
 import styled from "styled-components";
-import Circle from "./components/FormComponents/Circle"
-import { GlassButton } from "./components/FormComponents/GlassButton";
+import Circle from "./components/StyledComponents/Circle"
+import { GlassButton } from "./components/StyledComponents/Buttons";
 
 
 const Main = styled.main`
@@ -180,10 +180,33 @@ function App() {
     setMember(array);
   };
 
-
   // Options for the nav bar
   const options = ["General Information", "References", "Team Members", "Contract Term", "Pricing"];
 
+  // For handling the actual page on the interface
+
+  const [nmbPage, setnmbPage] = useState(1);
+
+  // to scroll up when the next buttom or back are clicked.
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    });
+  };
+
+  const nextPage = () => {
+    setnmbPage(nmbPage + 1);
+    scrollToTop();
+  };
+
+  const backPage = () => {
+    setnmbPage(nmbPage - 1)
+    scrollToTop();
+  };
 
   return (
     <div className="container">
@@ -207,9 +230,9 @@ function App() {
         {/* <Nav /> */}
         <Main>
           <Glass>
-            <Nav options={options} />
+            <Nav options={options} setnmbPage={setnmbPage} />
             <Display>
-              <Title>{options[0]}</Title>
+              <Title>{options[nmbPage - 1]}</Title>
               <Icon />
               <Form
                 state={state}
@@ -222,8 +245,14 @@ function App() {
                 members={members}
                 submitMember={submitMember}
                 deleteMember={deleteMember}
+                nmbPage={nmbPage}
+                setnmbPage={setnmbPage}
               />
             </Display>
+            <div style={{ position: "relative", display: "flex", position: "absolute", bottom: "3%", right: "0%", marginLeft: "10rem" }}>
+              {nmbPage > 1 ? <GlassButton onClick={() => backPage()}>{">"}</GlassButton> : ""}
+              <GlassButton onClick={() => nextPage()}>{">"}</GlassButton>
+            </div>
           </Glass>
         </ Main>
         <Circle top="10%" right="10%" />

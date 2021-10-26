@@ -1,5 +1,6 @@
 import "../../styles/main.css";
 import { CompleteReference } from "./CompleteReference";
+import { ClassicButton } from "../StyledComponents/Buttons";
 
 const FormReferences = (props) => {
   const { references, addReference, backPage, nextPage } = props;
@@ -20,13 +21,7 @@ const FormReferences = (props) => {
     }}>
       {createReferences(references)}
       < div className="buttons-box" >
-        <div
-          className="submit"
-          style={{ backgroundColor: "rgb(103,227,130)" }}
-          onClick={addReference}
-        >
-          Add Reference
-        </div>
+        <ClassicButton color="rgb(103, 227, 130)">Add Member</ClassicButton>
       </div >
     </div >
   );

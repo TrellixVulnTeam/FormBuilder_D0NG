@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RadioButton } from "./Inputs";
+import { RadioButton } from "../StyledComponents/Inputs";
 
 const Pricing = (props) => {
   return (

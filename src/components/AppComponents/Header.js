@@ -1,5 +1,5 @@
-import "../styles/main.css";
-import Logo from "../images/LogoThirdRock.svg";
+import "../../styles/main.css";
+import Logo from "../../images/LogoThirdRock.svg";
 import styled from "styled-components"
 
 const Title = styled.div`

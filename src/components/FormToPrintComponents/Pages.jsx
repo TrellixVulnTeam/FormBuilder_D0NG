@@ -1,10 +1,10 @@
-import "../styles/form.css";
-import Logo from "../images/LogoThirdRock.svg";
-import LogoFirstPage from "../images/LogoPage1.png";
-import FormHeader from "./FormToPrintComponents/FormHeader";
-import FormFooter from "./FormToPrintComponents/FormFooter";
-import { Reference } from "./FormToPrintComponents/Reference";
-import TeamMember from "./FormToPrintComponents/TeamMember";
+import "../../styles/form.css";
+import Logo from "../../images/LogoThirdRock.svg";
+import LogoFirstPage from "../../images/LogoPage1.png";
+import FormHeader from "./FormHeader";
+import FormFooter from "./FormFooter";
+import { Reference } from "./Reference";
+import TeamMember from "./TeamMember";
 
 export const FirstPage = (props) => {
   return (

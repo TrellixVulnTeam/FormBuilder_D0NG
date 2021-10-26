@@ -1,5 +1,5 @@
-import { Input } from "../FormComponents/Inputs";
-import { GlassButton } from "./GlassButton";
+import { Input } from "../StyledComponents/Inputs";
+import { GlassButton } from "../StyledComponents/Buttons";
 const GeneralInformation = (props) => {
   return (
     <div>
@@ -33,12 +33,6 @@ const GeneralInformation = (props) => {
         onChange={props.change}
         name="address"
       ></Input>
-      {/* <div className="buttons-box">
-        <div className="submit" onClick={props.nextPage}>
-          Next
-        </div>
-        <h1>{props.page}</h1>
-      </div> */}
     </div>
   );
 };

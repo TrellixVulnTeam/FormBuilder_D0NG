@@ -39,6 +39,19 @@ const Button = styled.div`
         box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         
     }
+`
 
-    
+
+export const ClassicButton = styled.button`
+    background:${props => props.color ? props.color : "black"};
+    border-radius:4px;
+    font-size:14pxrem;
+    font-weight:800;
+    width:35%;
+    margin:20px;
+    padding:0.4em;
+    box-shadow:none;
+    border:none;
+    margin:20px;
+    font-family:inherit;
 `
