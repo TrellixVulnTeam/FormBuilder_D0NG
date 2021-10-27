@@ -41,10 +41,10 @@ const FormMembers = (props) => {
   //No poder agregar elementos si esta vacio, hacer la validacion
 
   return (
-    <div style={{ display: "flex", width: "90%" }}>
+    <>
       <FormCard flex={2}>
         <h1>Team Members</h1>
-        <div>
+        <div style={{ width: "100%" }}>
           <Input2
             title="Insert Name"
             name="name"
@@ -83,7 +83,7 @@ const FormMembers = (props) => {
           ))}
         </FormCard>
         : ""}
-    </div>
+    </>
   );
 };
 

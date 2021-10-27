@@ -225,7 +225,7 @@ function App() {
         ></link>
         <button onClick={handlePrint}>Print this out!</button>
       </header>
-      <form className="main-page">
+      <form style={{ textAlign: "center" }}>
         <Header />
         {/* <Nav /> */}
         <Main>

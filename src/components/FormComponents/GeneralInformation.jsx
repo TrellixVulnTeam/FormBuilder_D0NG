@@ -2,7 +2,7 @@ import { Input } from "../StyledComponents/Inputs";
 import { GlassButton } from "../StyledComponents/Buttons";
 const GeneralInformation = (props) => {
   return (
-    <div>
+    <>
       <Input
         title="Name of the project"
         value={props.state.projectName}
@@ -33,7 +33,7 @@ const GeneralInformation = (props) => {
         onChange={props.change}
         name="address"
       ></Input>
-    </div>
+    </>
   );
 };
 

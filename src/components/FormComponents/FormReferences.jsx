@@ -1,4 +1,4 @@
-import "../../styles/main.css";
+// import "../../styles/main.css";
 import { CompleteReference } from "./CompleteReference";
 import { ClassicButton } from "../StyledComponents/Buttons";
 
@@ -17,12 +17,14 @@ const FormReferences = (props) => {
 
   return (
     <div style={{
-      overflowY: "scroll", maxHeight: "75vh", width: "100%"
+      overflowY: "scroll", maxHeight: "75vh", width: "100%", display: "flex", flexDirection: "column", alignItems: "center"
     }}>
       {createReferences(references)}
-      < div className="buttons-box" >
-        <ClassicButton color="rgb(103, 227, 130)">Add Member</ClassicButton>
-      </div >
+      <ClassicButton
+        color="rgb(103, 227, 130)"
+        onClick={props.addReference}
+      >
+        Add Member</ClassicButton>
     </div >
   );
 };

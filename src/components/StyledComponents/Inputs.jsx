@@ -3,11 +3,8 @@ import styled from "styled-components";
 
 
 export const StyledInput = styled.div`
- div{
-   background-color:red;
-   display:flex;
-   justify-content:center;
- }
+  position:relative;
+  width:100%;
  h2{
   font-size: 1.2em;
   color: black;
@@ -73,9 +70,7 @@ export const RadioButton = (props) => {
 
   return (
     <div>
-      <p>
-        <strong>{props.title}</strong>
-      </p>
+      <p><strong>{props.title}</strong></p>
       <div style={radioButton} onClick={props.handleChange(props.name)}>
         <div>
           <p>{props.option1}</p>{" "}

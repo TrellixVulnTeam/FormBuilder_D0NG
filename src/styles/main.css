@@ -28,27 +28,6 @@
   z-index: 2;
   margin: 0 auto;
 }
-/* Styles for the header */
-
-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.Login {
-  max-width: 300px;
-  max-height: 300px;
-  padding-right: 5%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-.main-page {
-  text-align: center;
-}
-
-/* Style of the input  */
-
 
 input {
   width: 35%;
@@ -59,32 +38,7 @@ input {
   font-weight: 600;
 }
 
-/* Buttons */
 
-.buttons-box {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  justify-self: center;
-  margin: auto;
-}
-
-.submit,
-.print {
-  margin: 20px;
-  width: 35%;
-  border-radius: 4px;
-  font-size: 14px;
-  font-family: inherit;
-  font-weight: 800;
-  box-shadow: none;
-  border-width: 0;
-  padding: 0.4em;
-}
-.submit {
-  background-color: rgb(231, 106, 106);
-}
 
 .print {
   background-color: rgb(106, 135, 231);

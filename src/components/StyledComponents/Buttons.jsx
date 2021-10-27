@@ -42,7 +42,7 @@ const Button = styled.div`
 `
 
 
-export const ClassicButton = styled.button`
+export const ClassicButton = styled.div`
     background:${props => props.color ? props.color : "black"};
     border-radius:4px;
     font-size:14pxrem;
@@ -54,4 +54,5 @@ export const ClassicButton = styled.button`
     border:none;
     margin:20px;
     font-family:inherit;
+    align-self:center;
 `
