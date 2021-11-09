@@ -88,8 +88,10 @@ function App() {
     hosting: "",
     addMembers: "No",
     addReferences: "No",
-    addPricing: "No"
+    addPricing: "No",
   });
+
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (input) => (e) => {
     setState({
@@ -100,24 +102,7 @@ function App() {
 
   //This related to the part 2.5 of the form
 
-  const [references, setReference] = useState([
-    {
-      id: "0",
-      name: "LORETO PUEBLO MAGICO",
-      page: "https://thirdrock.systems/project-loreto/",
-      referenceName: "Maria Guadalupe",
-      phone: "01.613.135.0036",
-      email: "maria.guadalupe@loreto.gob.mx",
-    },
-    {
-      id: "1",
-      name: "LORETO",
-      page: "https://thirdrock.systems/project-loreto/",
-      referenceName: "Maria Guadalupe",
-      phone: "01.613.135.0036",
-      email: "maria.guadalupe@loreto.gob.mx",
-    },
-  ]);
+  const [references, setReference] = useState([]);
 
   const handleReference = (index) => (input) => (e) => {
     // the argument of this function is an element of the array references.
@@ -152,24 +137,24 @@ function App() {
   };
 
   const deleteReference = () => (e) => {
+
     let array = references.filter((element) => element.id !== e.target.id);
+    console.log(array);
     setReference(array);
   };
 
   // Array that will handle team members from the section 2.8
 
+  console.log(references)
   const [members, setMember] = useState([]);
 
   const submitMember = (memberInput) => {
     if (Array.isArray(memberInput)) {
       let array = []
       memberInput.forEach(e => array.push(e))
-      console.log(array)
       setMember(array)
-      console.log(members)
     }
     else {
-      console.log(members)
       let copy = members.slice()
       copy.push(memberInput)
       setMember(copy)
@@ -202,6 +187,8 @@ function App() {
 
   const nextPage = () => {
     setnmbPage(nmbPage + 1);
+    console.log()
+
     // scrollToTop();
   };
 
@@ -232,7 +219,7 @@ function App() {
         {/* <Nav /> */}
         <Main>
           <Glass>
-            <Nav options={options} setnmbPage={setnmbPage} />
+            <Nav options={options} setnmbPage={setnmbPage} nmbPage={nmbPage} />
             <Display>
               <Title>{options[nmbPage - 1]}</Title>
               <Icon />
@@ -248,6 +235,9 @@ function App() {
                 deleteMember={deleteMember}
                 nmbPage={nmbPage}
                 setnmbPage={setnmbPage}
+                setReference={setReference}
+                setLoading={setLoading}
+                loading={loading}
               />
             </Display>
             <div style={{ display: "flex", position: "absolute", bottom: "3%", right: "0%", marginLeft: "10rem" }}>

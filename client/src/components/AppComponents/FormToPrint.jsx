@@ -39,14 +39,7 @@ export class FormToPrint extends Component {
         />
         <Pages.PageEight projectName={projectName} longName={longName} />
         <Pages.PageNine projectName={projectName} longName={longName} />
-        <Pages.PageTen projectName={projectName} longName={longName} />
-        <Pages.Page11 projectName={projectName} longName={longName} />
-        <Pages.Page12 projectName={projectName} longName={longName} />
-        <Pages.Page13 projectName={projectName} longName={longName} />
-        <Pages.Page14 projectName={projectName} longName={longName} />
-        <Pages.Page15 projectName={projectName} longName={longName} />
-        <Pages.Page16 projectName={projectName} longName={longName} />
-        <Pages.Page17 projectName={projectName} longName={longName} />
+        <Pages.Portfolio projectName={projectName} longName={longName} />
         <Pages.Page18 projectName={projectName} longName={longName} />
         <Pages.Page19
           projectName={projectName}

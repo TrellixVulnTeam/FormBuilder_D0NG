@@ -3,7 +3,8 @@ import { Input2, RadioButton } from "../StyledComponents/Inputs";
 import styled from "styled-components"
 import { FormCard } from "../AppComponents/Form";
 import { ClassicButton } from "../StyledComponents/Buttons";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ClipLoader from "react-spinners/ClipLoader"
 
 const Div = styled.div`
   width: 100%;
@@ -17,6 +18,7 @@ const Div = styled.div`
 // `
 
 const FormMembers = (props) => {
+
   const { submit, members } = props;
 
   const [memberInput, setMemberInput, reset] = useMembers({
@@ -25,6 +27,8 @@ const FormMembers = (props) => {
     cv: "",
     skills: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   const addMember = (e, member) => {
     e.preventDefault();
@@ -38,7 +42,6 @@ const FormMembers = (props) => {
     let array2 = array.reduce((acum, member) => [...acum, member.person], [])
     let array3 = array2.slice()
     submit(array3)
-
   }
   //Request to obtain Team Members from Notion DB
 
@@ -47,10 +50,10 @@ const FormMembers = (props) => {
       .then((res) => res.json())
       .then((data) => data.teamMembers)
       .then(data => createArrayNotion(data))
+      .then(data => setLoading(true))
   }, []);
 
   //No poder agregar elementos si esta vacio, hacer la validacion
-
   return (
     <>
       <FormCard>
@@ -60,6 +63,7 @@ const FormMembers = (props) => {
           option2="No"
           name="addMembers"
           handleChange={props.change}
+          check={props.state.addMembers}
         ></RadioButton>
       </FormCard>
       {props.state.addMembers !== "No" ?
@@ -94,16 +98,16 @@ const FormMembers = (props) => {
           <ClassicButton color="rgb(103, 227, 130)" onClick={(e) => addMember(e, memberInput)}>Add Member</ClassicButton>
         </FormCard>
         : ""}
-      {members.length > 0 ?
+      {loading ?
         <FormCard flex={1}>
           {members.map((e, i) => (
             <Div>
-              <li >{`${e.name} ----${e.designation} `}</li>
+              <li key={e.name}><strong>Member:   </strong>{e.name}</li>
               <ClassicButton color="rgb(231, 106, 106)" onClick={() => props.delete({ i })}>Delete Member</ClassicButton>
             </Div>
           ))}
         </FormCard>
-        : ""}
+        : <ClipLoader size={75} loading={true} color={"#000000"} />}
     </>
   );
 };

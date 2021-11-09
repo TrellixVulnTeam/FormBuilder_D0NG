@@ -42,7 +42,7 @@ export const CompleteReference = (props) => {
       ></InputReference>
       <ClassicButton color="rgb(231, 106, 106)"
         onClick={props.deleteReference()}
-        id={props.references["id"]}
+        id={props.index}
       >Delete Reference
       </ClassicButton>
     </FormCard>

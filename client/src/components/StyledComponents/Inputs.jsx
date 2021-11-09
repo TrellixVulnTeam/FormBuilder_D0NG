@@ -67,8 +67,8 @@ export const Input2 = (props) => {
 };
 
 export const RadioButton = (props) => {
-
   return (
+
     <div>
       <p><strong>{props.title}</strong></p>
       <div style={radioButton} onClick={props.handleChange(props.name)}>
@@ -79,6 +79,7 @@ export const RadioButton = (props) => {
             type="radio"
             name={props.name}
             value={props.option1}
+            checked={props.check === "Yes"}
           />
         </div>
         <div>
@@ -88,6 +89,7 @@ export const RadioButton = (props) => {
             type="radio"
             name={props.name}
             value={props.option2}
+            checked={props.check === "No"}
           />
         </div>
       </div>

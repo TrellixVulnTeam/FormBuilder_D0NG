@@ -17,6 +17,13 @@ app.get('/api/teamMembers', (req, res) => {
     })()
 })
 
+app.get('/api/references', (req, res) => {
+    ; (async () => {
+        let data = await notion_api.getReferences();
+        res.end(data)
+    })()
+})
+
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
 });

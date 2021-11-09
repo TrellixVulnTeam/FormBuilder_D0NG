@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+::webkit-scrollbar{
+  width:5em;
+}
+
+/* ::webkit-scrollbar-track{
+  background: linear-gradient(
+    to right bottom,
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0.1)
+  );
+   margin-block: .5em
+ } 
+
+::webkit-scrollbar-thumb{
+  background: linear-gradient(
+    to right bottom,
+    rgba(26,67,204,0.9),
+    rgba(26,67,255,0.5)
+  );
+   border-radius: 2rem;
+ } */

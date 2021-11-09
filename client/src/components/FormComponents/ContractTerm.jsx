@@ -11,8 +11,8 @@ const ContractTerm = (props) => {
   };
   return (
     <div style={{ height: "100%" }}>
-      <h1> Contract Term</h1>
-      <p>Choose the type of contract</p>
+      <h1> Contract Term</h1><br />
+      <p>Select the type of contract</p>
       <br></br>
       <CheckBox
         title="Write the specific date"

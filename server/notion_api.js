@@ -3,7 +3,8 @@ const { Client } = require('@notionhq/client')
 
 class NotionAPI {
     constructor() {
-        this.databaseId = process.env.NOTION_DATABASE_ID
+        this.databaseTeamMembersId = process.env.NOTION_DATABASE_TEAMMEMBERS_ID
+        this.databaseReferencesId = process.env.NOTION_DATABASE_REFERENCES_ID
         this.client = new Client({
             auth: process.env.NOTION_API_KEY
         })
@@ -13,7 +14,7 @@ class NotionAPI {
     async getTeamMembers() {
         try {
             const response = await this.client.databases.query({
-                database_id: this.databaseId
+                database_id: this.databaseTeamMembersId
             })
             let TeamMembers = {
                 teamMembers: []
@@ -43,10 +44,10 @@ class NotionAPI {
         try {
             this.client.pages.create({
                 parent: {
-                    database_id: this.databaseId
+                    database_id: this.databaseTeamMembersId
                 },
                 properties: {
-                    [process.env.NOTION_NAME_ID]: {
+                    [process.env.NOTION_TEAMMEMBERS_NAME_ID]: {
                         title: [{
                             type: 'text',
                             text: {
@@ -54,7 +55,7 @@ class NotionAPI {
                             }
                         }]
                     },
-                    [process.env.NOTIO_DESIGNATION_ID]: {
+                    [process.env.NOTION_TEAMMEMBERS_DESIGNATION_ID]: {
                         rich_text: [{
                             type: 'text',
                             text: {
@@ -62,7 +63,7 @@ class NotionAPI {
                             }
                         }]
                     },
-                    [process.env.NOTION_CV_ID]: {
+                    [process.env.NOTION_TEAMMEMBERS_CV_ID]: {
                         rich_text: [{
                             type: 'text',
                             text: {
@@ -70,7 +71,7 @@ class NotionAPI {
                             }
                         }]
                     },
-                    [process.env.NOTION_SKILLS_ID]: {
+                    [process.env.NOTION_TEAMMEMBERS_SKILLS_ID]: {
                         rich_text: [{
                             type: 'text',
                             text: {
@@ -87,6 +88,36 @@ class NotionAPI {
             console.log(error)
         }
 
+    }
+
+    async getReferences() {
+        try {
+            const response = await this.client.databases.query({
+                database_id: this.databaseReferencesId
+            })
+            let references = {
+                references: []
+            }
+            const length = response.results.length
+            console.log(response.results[0])
+            for (let i = 0; i < length; i++) {
+                let person = {
+                    person: {
+                        name: response.results[i].properties.Name.title[0].plain_text,
+                        referenceName: response.results[i].properties.referenceName.rich_text[0].plain_text,
+                        phone: response.results[i].properties.phone.rich_text[0].plain_text,
+                        page: response.results[i].properties.page.rich_text[0].plain_text,
+                        email: response.results[i].properties.email.rich_text[0].plain_text,
+                    }
+                }
+                references["references"].push(person)
+            }
+            let info = JSON.stringify(references)
+            return info
+        }
+        catch (error) {
+            return error
+        }
     }
 
 }

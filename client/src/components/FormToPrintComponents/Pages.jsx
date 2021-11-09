@@ -3,8 +3,11 @@ import Logo from "../../images/LogoThirdRock.svg";
 import LogoFirstPage from "../../images/LogoPage1.png";
 import FormHeader from "./FormHeader";
 import FormFooter from "./FormFooter";
-import { Reference } from "./Reference";
 import TeamMember from "./TeamMember";
+import DefaultPage from "./DefaultPage";
+import { names, text } from "../FormComponents/CONST_Portfolio";
+import { Grid1 } from "./Grids/Grid1";
+import { PrintReference } from "./FormToPrintReferences";
 
 export const FirstPage = (props) => {
   return (
@@ -276,6 +279,18 @@ export const FourthPage = (props) => {
 };
 
 export const FifthPage = (props) => {
+
+  const skills = [
+    "NodeJS",
+    "HTML",
+    "Javascript",
+    "CSS / SASSS",
+    "ASP",
+    "PHP",
+    "MySQL",
+    "ReactJS",
+    "Gatsby"]
+
   return (
     <div className="body">
       <FormHeader index={4}></FormHeader>
@@ -308,21 +323,9 @@ export const FifthPage = (props) => {
         <br></br>
         <h3>2.4 CORE CAPABILITIES</h3>
         <br></br>
-        <p>
-          <strong>Web Development</strong>
-        </p>
+        <p><strong>Web Development</strong></p>
         <br></br>
-        <div className="m2-4_grid-container">
-          <div className="m2-4_grid-item">NodeJS</div>
-          <div className="m2-4_grid-item">HTML</div>
-          <div className="m2-4_grid-item">Javascript</div>
-          <div className="m2-4_grid-item">CSS/SASS/LESS</div>
-          <div className="m2-4_grid-item">ASP</div>
-          <div className="m2-4_grid-item">PHP</div>
-          <div className="m2-4_grid-item">MySQL</div>
-          <div className="m2-4_grid-item">ReactJS</div>
-          <div className="m2-4_grid-item">Gatsby</div>
-        </div>
+        <Grid1 skills={skills} title="Web Development" />
       </div>
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
     </div>
@@ -330,62 +333,41 @@ export const FifthPage = (props) => {
 };
 
 export const PageSix = (props) => {
+  const skills1 = [
+    "UNIX",
+    "CSS",
+    "JSON",
+    "C/C++/C#",
+    "AngularJS",
+    "PHP",
+    "C#",
+    "Python",
+    "ReactJS",
+    "PL/SQL",
+    "MySQL",
+    "SQL",
+    "SAP",
+    "Swift",
+    "GraphQL"]
+
+  const skills2 = [
+    "JAVA",
+    "MS Access",
+    "Netron/CAP",
+    "JSP",
+    "ODBC",
+    "JBDC"
+  ]
+  console.log(props.references)
   return (
     <div className="body">
       <FormHeader index={5}></FormHeader>
       <div className="text">
-        <p>
-          <strong>Software Development</strong>
-        </p>
-        <br></br>
-        <div className="m2-4_grid-container2">
-          <div className="m2-4_grid-item">UNIX</div>
-          <div className="m2-4_grid-item">CSS</div>
-          <div className="m2-4_grid-item">JSON</div>
-          <div className="m2-4_grid-item">C/C++/C#</div>
-          <div className="m2-4_grid-item">AngularJS</div>
-          <div className="m2-4_grid-item">PHP</div>
-          <div className="m2-4_grid-item">C#</div>
-          <div className="m2-4_grid-item">Python</div>
-          <div className="m2-4_grid-item">ReactJS</div>
-          <div className="m2-4_grid-item">PL/SQL</div>
-          <div className="m2-4_grid-item">MySQL</div>
-          <div className="m2-4_grid-item">SQL</div>
-          <div className="m2-4_grid-item">SAP</div>
-          <div className="m2-4_grid-item">Swift</div>
-          <div className="m2-4_grid-item">GraphQL</div>
-        </div>
-        <p>
-          <strong>Programming/Analyst</strong>
-        </p>
-        <br></br>
-        <div className="m2-4_grid-container">
-          <div className="m2-4_grid-item">JAVA</div>
-          <div className="m2-4_grid-item">MS Access</div>
-          <div className="m2-4_grid-item">Netron/CAP</div>
-          <div className="m2-4_grid-item">JSP</div>
-          <div className="m2-4_grid-item">ODBC</div>
-          <div className="m2-4_grid-item">JBDC</div>
-        </div>
+        <Grid1 title="Sofware Development" skills={skills1} />
+        <Grid1 title="Programming Analytics" skills={skills2} />
         <h3>2.5 REFERENCES</h3>
         <br></br>
-        <div
-          style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
-        >
-          {props.references.map((e, i) =>
-            i <= 6 ? (
-              <Reference
-                name={e.name}
-                page={e.page}
-                referenceName={e.referenceName}
-                phone={e.phone}
-                email={e.email}
-              />
-            ) : (
-              () => alert("Max of references 6")
-            )
-          )}
-        </div>
+        <PrintReference references={props.references}></PrintReference>
       </div>
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
     </div>
@@ -565,243 +547,28 @@ export const PageNine = (props) => {
     </div>
   );
 };
+export const Portfolio = (props) => {
 
-export const PageTen = (props) => {
+  // Passing the information from the const to an array this from CONST_PORTFOLIO
+  const pages = []
+  for (let i = 0; i < names.length; i++) {
+    let page = {
+      module: i === 0 ? "2.6.2 Portfolio" : <br />,
+      title: names[i],
+      text: text[i],
+      index: i + 10
+    }
+    pages.push(page)
+  }
   return (
-    <div className="body">
-      <FormHeader index={5}></FormHeader>
-      <div className="text">
-        <h3>2.6.2 Portfolio</h3>
-        <p>
-          <strong>Senator Mitch Connell</strong>
-        </p>
-        <img src={LogoFirstPage} alt="Third Rock Logo"></img>
-        <p>
-          Senator McConnell requires a versatile and responsive website. The
-          main concern of his office was usability, allowing more direct
-          communication with his constituents. To address this, TRS crafted a
-          solution with the WordPress platform using both cutting-edge and
-          tried-and-true techniques. Some significant UX and design highlights
-          include the mosaic pattern presentation, highlighting new posts, and
-          press releases for maximum usability. Social media sharing is present
-          throughout the website to help disseminate information faster to
-          citizens in Senator McConnell’s riding. Follow links are accessible
-          across the whole site to allow visitors to share content and
-          strengthen relations with the agency. Finally, the site integrates a
-          small e-commerce section to allow visitors to purchase flags and other
-          relevant products.
-        </p>
-      </div>
-      <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
-  );
-};
+    <>
+      {pages.map(page => <DefaultPage title={page.title} module={page.module} text={page.text} logo={LogoFirstPage} index={page.index} longName={props.longName} projectName={props.projectName}></DefaultPage>)}
+    </>
+  )
 
-export const Page11 = (props) => {
-  return (
-    <div className="body">
-      <FormHeader index={9}></FormHeader>
-      <div className="text">
-        <h3>2.6.2 Portfolio</h3>
-        <p>
-          <strong>Senator Kamala Harris</strong>
-        </p>
-        <img src={LogoFirstPage} alt="Third Rock Logo"></img>
-        <p>
-          For this project, TRS developed a demo website to enhance the presence
-          of Senator Kamala Harris. The base project framework is WordPress CMS
-          with a custom Elementor theme. Further enhancements required
-          additional plugins, including Essential Addons for Elementor, to
-          create a more attractive page. Multimedia files are displayed within a
-          carousel design, creating an interactive area where users can browse
-          new video content. The homepage brings particular attention to
-          upcoming events and the latest news releases, ensuring users get the
-          latest information immediately upon loading the website.
-        </p>
-      </div>
-      <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
-  );
-};
 
-export const Page12 = (props) => {
-  return (
-    <div className="body">
-      <FormHeader index={10}></FormHeader>
-      <div className="text">
-        <p>
-          <strong>City of Tucson, AZ</strong>
-        </p>
-        <img src={LogoFirstPage} alt="LOGO"></img>
-        <p>
-          The City of Tucson required an update to its aging website. Paramount
-          amongst their concerns was information delivery. Being a large city,
-          Tucson offers a wide variety of services for its citizens.
-          Immediately, TRS got to work performing a content normalization
-          strategy to inform the UX needs of the future website. With content
-          needs and user experience paths established, TRS design experts
-          crafted a beautiful theme heavily focused on simplicity and usability
-          while highlighting the essence of Tucson. Built with WordPress and
-          using the Elementor page builder plugins, TRS provides the city with a
-          fully-featured and easy-to-edit website for their content and
-          administration staff. Analytics revealed the current website was
-          receiving a fair split of traffic between mobile and desktop users, so
-          special attention was given to the responsive nature of the design. To
-          further enhance usability, the events section links with Google Maps,
-          allowing users to see and find local activity locations easily.
-          Finally, an email subscription form has been synced to popular mail
-          service MailChimp for any user(s) who wish to receive newsletters and
-          keep updated on the latest news and local Tucson events.
-        </p>
-      </div>
-      <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
-  );
-};
 
-export const Page13 = (props) => {
-  return (
-    <div className="body">
-      <FormHeader index={11}></FormHeader>
-      <div className="text">
-        <p>
-          <strong>The State Bar of California</strong>
-        </p>
-        <img src={LogoFirstPage} alt="image2"></img>
-        <p>
-          The State Bar of California required an institutional site with a
-          sober, straightforward, and understandable presentation. TRS developed
-          a solution created with WordPress CMS and using the Elementor page
-          builder plugin to meet their needs. All pages are entirely adaptable
-          to any media device available. Thumbnail images gallery and recent
-          news section created with a blogging structure to efficiently
-          administer content. The Contact us page includes easy-to-use forms
-          that email the relevant parties on submission and contact details link
-          with Google Maps, so users know where to look when the services are
-          needed.
-        </p>
-      </div>
-      <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
-  );
-};
-
-export const Page14 = (props) => {
-  return (
-    <div className="body">
-      <FormHeader index={12}></FormHeader>
-      <div className="text">
-        <p>
-          <strong>Cybersecurity and Infrastructure Security Agency</strong>
-        </p>
-        <img src={LogoFirstPage}></img>
-        <p>
-          TRS develop another eye-catching website build with a professional
-          look to represent the most critical Cybersecurity government
-          institution in the USA, The Cybersecurity and Infrastructure Security
-          Agency (CISA). After porting most of the information from the CISA
-          original website, TRS developed a framework to enhance the UI
-          interface and improve the user navigation experience. The entire site
-          was developed with WordPress CMS using the Elementor Page Builder
-          plugin for a core theme. Special add-on plugins include Slider
-          Revolution, allowing content administrators a simple way to create a
-          more attractive and interactive design. The anti-spam software
-          reCAPTCHA3 is present throughout the entire website. ReCAPTCHA3
-          automatically verifies users’ connection without the need to enter
-          data into text boxes or select images. In addition, contact forms are
-          managed using the Contact Form 7 plugin and linked directly to Google
-          maps to facilitate CISA’s administrative office location(s).
-        </p>
-      </div>
-      <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
-  );
-};
-
-export const Page15 = (props) => {
-  return (
-    <div className="body">
-      <FormHeader index={13}></FormHeader>
-      <div className="text">
-        <p>
-          <strong>Senator Ben Cardin</strong>
-        </p>
-        <img src={LogoFirstPage} alt="image"></img>
-        <p>
-          This demo theme is created with WordPress CMS using the Elementor page
-          builder plugins. This configuration allows for the development of
-          complex layouts due to the simple frontend editor. To ensure
-          constituents can always reach the senator, best practices for full
-          responsiveness provide compatibility with all media devices. To help
-          centralize information, TRS establishes seamless integration with the
-          Twitter social media platform via API to display all the live tweets
-          and responses from the Senators feed on the homepage directly.
-          Finally, we link the contact us form to Google Maps and email all
-          relevant parties upon submission.
-        </p>
-      </div>
-      <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
-  );
-};
-
-export const Page16 = (props) => {
-  return (
-    <div className="body">
-      <FormHeader index={14}></FormHeader>
-      <div className="text">
-        <p>
-          <strong>Governor of Wyoming</strong>
-        </p>
-        <img src={LogoFirstPage} alt="image"></img>
-        <p>
-          The Governor of Wyoming office was concerned constituents weren’t able
-          to easily access information on their aging website. TRS stepped up to
-          supply a simple, beautiful, and professional site built with WordPress
-          CMS, alongside the Elementor page builder plugins to improve the
-          appearance. TRS selected the Events Calendar plugin to give users an
-          at-a-glance rundown of local events and appearances by the Governor.
-          Paired with Google maps, citizens can quickly map out exciting events
-          nearby and easily add them to their calendar. Finally, to facilitate
-          constituent outreach, TRS configure API connections so users can
-          subscribe to newsletters and keep updated on the latest news.
-        </p>
-      </div>
-      <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
-  );
-};
-
-export const Page17 = (props) => {
-  return (
-    <div className="body">
-      <FormHeader index={15}></FormHeader>
-      <div className="text">
-        <h3>2.6.2 Portfolio</h3>
-        <p>
-          <strong>Senator Mitch Connell</strong>
-        </p>
-        <img src={LogoFirstPage} alt="image"></img>
-        <p>
-          Senator McConnell requires a versatile and responsive website. The
-          main concern of his office was usability, allowing more direct
-          communication with his constituents. To address this, TRS crafted a
-          solution with the WordPress platform using both cutting-edge and
-          tried-and-true techniques. Some significant UX and design highlights
-          include the mosaic pattern presentation, highlighting new posts, and
-          press releases for maximum usability. Social media sharing is present
-          throughout the website to help disseminate information faster to
-          citizens in Senator McConnell’s riding. Follow links are accessible
-          across the whole site to allow visitors to share content and
-          strengthen relations with the agency. Finally, the site integrates a
-          small e-commerce section to allow visitors to purchase flags and other
-          relevant products.
-        </p>
-      </div>
-      <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
-  );
-};
+}
 
 export const Page18 = (props) => {
   const members = [
@@ -824,7 +591,6 @@ export const Page18 = (props) => {
       img: "",
     },
   ];
-  console.log(members)
   return (
     <div className="body">
       <FormHeader index={18}></FormHeader>
@@ -840,7 +606,6 @@ export const Page18 = (props) => {
 
 export const Page19 = (props) => {
   let members = [];
-  console.log(props.members)
   for (let i = 0; i < props.members.length; i++) {
     members.push(props.members[i].name);
     members.push(props.members[i].designation);
@@ -1593,7 +1358,6 @@ export const Page32 = (props) => {
 };
 
 export const Page33 = (props) => {
-  console.log(props.members);
   // const members = props.members.map((element) => [
   //   element.name,
   //   element.skills,

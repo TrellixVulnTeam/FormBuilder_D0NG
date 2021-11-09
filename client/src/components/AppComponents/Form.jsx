@@ -1,4 +1,3 @@
-
 import { RadioButton } from "../StyledComponents/Inputs";
 import React from "react";
 import FormMembers from "../FormComponents/FormMembers";
@@ -7,6 +6,41 @@ import ContractTerm from "../FormComponents/ContractTerm";
 import GeneralInformation from "../FormComponents/GeneralInformation";
 import Pricing from "../FormComponents/Pricing";
 import styled from "styled-components";
+
+
+const ScrollBar = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    max-height: 75vh;
+    width: 100%;
+
+    &::-webkit-scrollbar{
+      width:1em;
+    }
+    &::-webkit-scrollbar-track{
+      background: linear-gradient(
+        to right bottom,
+        rgba(255,255,255,0.9),
+        rgba(255,255,255,0.1)
+      );
+       margin-block: .5em
+     } 
+
+    &::-webkit-scrollbar-thumb{
+      background: linear-gradient(
+        to right bottom,
+        rgba(26,67,204,0.9),
+        rgba(26,67,255,0.5)
+      );
+       border-radius: 2rem;
+     }
+
+    }
+`
+
+
 
 export const FormCard = styled.div`
     display:flex;
@@ -48,37 +82,31 @@ const Form = (props) => {
         <div style={{
           overflowY: "scroll", maxHeight: "75vh", width: "100%", display: "flex", flexDirection: "column", alignItems: "center"
         }}>
-          <FormCard>
-            <RadioButton
-              title="Would you like to add References"
-              option1="Yes"
-              option2="No"
-              name="addReferences"
-              handleChange={props.change}
-            ></RadioButton>
-          </FormCard>
-          {props.state.addReferences !== "No" ?
-            <FormReferences
-              references={props.references}
-              addReference={props.addReference}
-              handleReference={props.handleReference}
-              deleteReference={props.deleteReference}
-            ></FormReferences> : ""
-          }</div>
+          <FormReferences
+            references={props.references}
+            setReference={props.setReference}
+            addReference={props.addReference}
+            handleReference={props.handleReference}
+            deleteReference={props.deleteReference}
+            state={props.state}
+            change={props.change}
+            setLoading={props.setLoading}
+            loading={props.loading}
+          ></FormReferences> : ""
+        </div>
       );
     case 3:
       return (
-        <div style={{
-          overflowY: "scroll", maxHeight: "75vh", width: "100%", display: "flex", flexDirection: "column", alignItems: "center"
-        }}>
+        <ScrollBar>
           <FormMembers
             state={props.state}
             submit={props.submitMember}
             members={props.members}
             delete={props.deleteMember}
             change={props.change}
+            setLoading={props.setLoading}
           ></FormMembers>
-        </div>
+        </ScrollBar>
       );
     case 4:
       return (
@@ -94,12 +122,10 @@ const Form = (props) => {
     case 5:
       return (
         <>
-          <FormCard>
-            <Pricing
-              state={props.state}
-              handleChange={props.change}
-            ></Pricing>
-          </FormCard>
+          <Pricing
+            state={props.state}
+            handleChange={props.change}
+          ></Pricing>
         </>
       );
   }
