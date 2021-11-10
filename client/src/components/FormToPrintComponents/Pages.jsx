@@ -5,9 +5,10 @@ import FormHeader from "./FormHeader";
 import FormFooter from "./FormFooter";
 import TeamMember from "./TeamMember";
 import DefaultPage from "./DefaultPage";
-import { names, text } from "../FormComponents/CONST_Portfolio";
+import { names, text, items2_7, items2_7b, items2_7c, skills3, skillsB, skillsA, skillsC, TRSTeam, pluginsA, module5, module5B, module5F, module5E, module5D, module5C, module5G } from "./CONST_Portfolio";
 import { Grid1 } from "./Grids/Grid1";
 import { PrintReference } from "./FormToPrintReferences";
+import { Grid2, Grid3, GridPlugins, Grid5, Grid6 } from "./Grids/Grid2";
 
 export const FirstPage = (props) => {
   return (
@@ -280,16 +281,7 @@ export const FourthPage = (props) => {
 
 export const FifthPage = (props) => {
 
-  const skills = [
-    "NodeJS",
-    "HTML",
-    "Javascript",
-    "CSS / SASSS",
-    "ASP",
-    "PHP",
-    "MySQL",
-    "ReactJS",
-    "Gatsby"]
+  const skills = skillsA
 
   return (
     <div className="body">
@@ -333,31 +325,9 @@ export const FifthPage = (props) => {
 };
 
 export const PageSix = (props) => {
-  const skills1 = [
-    "UNIX",
-    "CSS",
-    "JSON",
-    "C/C++/C#",
-    "AngularJS",
-    "PHP",
-    "C#",
-    "Python",
-    "ReactJS",
-    "PL/SQL",
-    "MySQL",
-    "SQL",
-    "SAP",
-    "Swift",
-    "GraphQL"]
+  const skills1 = skillsB
 
-  const skills2 = [
-    "JAVA",
-    "MS Access",
-    "Netron/CAP",
-    "JSP",
-    "ODBC",
-    "JBDC"
-  ]
+  const skills2 = skillsC
   console.log(props.references)
   return (
     <div className="body">
@@ -375,6 +345,9 @@ export const PageSix = (props) => {
 };
 
 export const PageSeven = (props) => {
+
+  const items = items2_7;
+
   return (
     <div className="body">
       <FormHeader index={6}></FormHeader>
@@ -393,163 +366,47 @@ export const PageSeven = (props) => {
         </p>
         <br></br>
         <h4>2.6.1 CASE STUDIES OF PREVIOUS WORK</h4>
-        <br></br>
-        <p>
-          <strong>
-            LORETO PUEBLO MÁGICO // HTTPS://THIRDROCK.SYSTEMS/PROJECT-LORET
-          </strong>
-        </p>
-        <div className="m2-6_grid-container-studies">
-          <div className="m2-6_grid-item-studies">Project Lead</div>
-          <div className="m2-6_grid-item-studies">
-            Cristian Adal Garcia Hernandez
-          </div>
-          <div className="m2-6_grid-item-studies">Perfomance Period</div>
-          <div className="m2-6_grid-item-studies">2021</div>
-          <div className="m2-6_grid-item-studies">Target Audience</div>
-          <div className="m2-6_grid-item-studies">
-            Local Community & Residents
-          </div>
-          <div className="m2-6_grid-item-studies">
-            Primary Programming Language
-          </div>
-          <div className="m2-6_grid-item-studies">PHP</div>
-          <div className="m2-6_grid-item-studies">
-            Secondary Programming Language
-          </div>
-          <div className="m2-6_grid-item-studies">Javascript, MySQL, HTML</div>
-          <div className="m2-6_grid-item-studies">Mobile Ready?</div>
-          <div className="m2-6_grid-item-studies">Fully responsive</div>
-          <div className="m2-6_grid-item-studies">CMS</div>
-          <div className="m2-6_grid-item-studies">Custom HTML</div>
-          <div className="m2-6_grid-item-studies">
-            Was the CMS buitl in-house?
-          </div>
-          <div className="m2-6_grid-item-studies">Yes</div>
-          <div className="m2-6_grid-item-studies">
-            Was the CMS customized to meet specific client needs?
-          </div>
-          <div className="m2-6_grid-item-studies">Yes</div>
-          <div className="m2-6_grid-item-studies">
-            Number of users and admins
-          </div>
-          <div className="m2-6_grid-item-studies">3</div>
-        </div>
+        <Grid2 title="LORETO PUEBLO MÁGICO // HTTPS://THIRDROCK.SYSTEMS/PROJECT-LORETO" items={items}></Grid2>
       </div>
 
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
+    </div >
   );
 };
 
 export const PageEight = (props) => {
+
+  const items = items2_7b
+
   return (
     <div className="body">
       <FormHeader index={7}></FormHeader>
       <div className="grid">
-        <br></br>
-        <p>
-          <strong>CSF PERFORMANCE & RACE // HTTPS://CSF-DEV.10WEB.ME</strong>
-        </p>
-        <br></br>
-        <div className="m2-6_grid-container-studies">
-          <div className="m2-6_grid-item-studies">Project Lead</div>
-          <div className="m2-6_grid-item-studies">Zach Atkinson</div>
-          <div className="m2-6_grid-item-studies">Perfomance Period</div>
-          <div className="m2-6_grid-item-studies">2020</div>
-          <div className="m2-6_grid-item-studies">Target Audience</div>
-          <div className="m2-6_grid-item-studies">
-            Perfomance Vehicle Enthuasiasts
-          </div>
-          <div className="m2-6_grid-item-studies">
-            Primary Programming Language
-          </div>
-          <div className="m2-6_grid-item-studies">PHP</div>
-          <div className="m2-6_grid-item-studies">
-            Secondary Programming Language
-          </div>
-          <div className="m2-6_grid-item-studies">
-            Javascript, MySQL, HTML, SASS, React
-          </div>
-          <div className="m2-6_grid-item-studies">Mobile Ready?</div>
-          <div className="m2-6_grid-item-studies">Fully responsive</div>
-          <div className="m2-6_grid-item-studies">CMS</div>
-          <div className="m2-6_grid-item-studies">WordPress</div>
-          <div className="m2-6_grid-item-studies">
-            Was the CMS buitl in-house?
-          </div>
-          <div className="m2-6_grid-item-studies">No</div>
-          <div className="m2-6_grid-item-studies">
-            Was the CMS customized to meet specific client needs?
-          </div>
-          <div className="m2-6_grid-item-studies">Yes</div>
-          <div className="m2-6_grid-item-studies">
-            Number of users and admins
-          </div>
-          <div className="m2-6_grid-item-studies">6</div>
-        </div>
+        <Grid2 items={items} title="CSF PERFORMANCE & RACE // HTTPS://CSF-DEV.10WEB.ME" />
       </div>
-
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
     </div>
   );
 };
 
 export const PageNine = (props) => {
+
+  const items = items2_7c
+
   return (
     <div className="body">
       <FormHeader index={8}></FormHeader>
       <div className="grid">
-        <br></br>
-        <p>
-          <strong>SOULDIERS BARRIE // HTTPS://SOULDIERSBARRIE.COM</strong>
-        </p>
-        <br></br>
-        <div className="m2-6_grid-container-studies">
-          <div className="m2-6_grid-item-studies">Project Lead</div>
-          <div className="m2-6_grid-item-studies">Zach Atkinson</div>
-          <div className="m2-6_grid-item-studies">Perfomance Period</div>
-          <div className="m2-6_grid-item-studies">2020</div>
-          <div className="m2-6_grid-item-studies">Target Audience</div>
-          <div className="m2-6_grid-item-studies">
-            Perfomance Vehicle Enthuasiasts
-          </div>
-          <div className="m2-6_grid-item-studies">
-            Primary Programming Language
-          </div>
-          <div className="m2-6_grid-item-studies">PHP</div>
-          <div className="m2-6_grid-item-studies">
-            Secondary Programming Language
-          </div>
-          <div className="m2-6_grid-item-studies">
-            Javascript, MySQL, HTML, SASS, React
-          </div>
-          <div className="m2-6_grid-item-studies">Mobile Ready?</div>
-          <div className="m2-6_grid-item-studies">Fully responsive</div>
-          <div className="m2-6_grid-item-studies">CMS</div>
-          <div className="m2-6_grid-item-studies">WordPress</div>
-          <div className="m2-6_grid-item-studies">
-            Was the CMS buitl in-house?
-          </div>
-          <div className="m2-6_grid-item-studies">No</div>
-          <div className="m2-6_grid-item-studies">
-            Was the CMS customized to meet specific client needs?
-          </div>
-          <div className="m2-6_grid-item-studies">Yes</div>
-          <div className="m2-6_grid-item-studies">
-            Number of users and admins
-          </div>
-          <div className="m2-6_grid-item-studies">6</div>
-        </div>
-      </div>
-
+        <Grid2 title="SOULDIERS BARRIE // HTTPS://SOULDIERSBARRIE.COM" items={items}></Grid2>
+      </div >
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
+    </div >
   );
 };
 export const Portfolio = (props) => {
 
   // Passing the information from the const to an array this from CONST_PORTFOLIO
+
   const pages = []
   for (let i = 0; i < names.length; i++) {
     let page = {
@@ -571,26 +428,9 @@ export const Portfolio = (props) => {
 }
 
 export const Page18 = (props) => {
-  const members = [
-    {
-      name: "Chris Allen",
-      position: "Director of Business Development",
-      linkedn: "/chrisallen",
-      img: "",
-    },
-    {
-      name: "Andrew Thompsion",
-      position: "Director of Engineering",
-      linkedn: "/andrewwjthompson",
-      img: "",
-    },
-    {
-      name: "Zach Atkinson",
-      position: "Director of Technology",
-      linkedn: "/zachatkinson",
-      img: "",
-    },
-  ];
+
+  const members = TRSTeam;
+
   return (
     <div className="body">
       <FormHeader index={18}></FormHeader>
@@ -605,43 +445,21 @@ export const Page18 = (props) => {
 };
 
 export const Page19 = (props) => {
+  //Array that we will map for the grid
+
   let members = [];
+
   for (let i = 0; i < props.members.length; i++) {
     members.push(props.members[i].name);
     members.push(props.members[i].designation);
   }
 
+
   return (
     <div className="body">
       <FormHeader index={19}></FormHeader>
       <div className="grid">
-        <h3>2.8 TEAM WORKING ON THIS PROJECT</h3>
-        <br></br>
-        <div className="m2-8_grid-container">
-          <div
-            className="m2-8_grid-item"
-            style={{
-              backgroundColor: "rgb(178,204,243)",
-              fontSize: "0.85rem",
-              fontWeight: "600",
-            }}
-          >
-            Name
-          </div>
-          <div
-            className="m2-8_grid-item"
-            style={{
-              backgroundColor: "rgb(178,204,243)",
-              fontSize: "0.85rem",
-              fontWeight: "600",
-            }}
-          >
-            Position
-          </div>
-          {members.map((e, index) => (
-            <div className="m2-8_grid-item">{e}</div>
-          ))}
-        </div>
+        <Grid3 title="2.8 TEAM WORKING ON THIS PROJECT" members={members} />
         <h3>3.0 SCOPE OF WORK</h3>
         <br></br>
         <p>
@@ -649,7 +467,7 @@ export const Page19 = (props) => {
           Systems (TRS) will perform as part of the {props.projectName} project
           for {props.longName}.TRS will accomplish this mission by unifying
           brand elements, applying state-of-the-art technology, best practices
-          for accessibility and technical optimization. Further to this, TRS
+          for accessibility and technical optimization.Further to this, TRS
           also provides content normalization, hierarchy, and delivery solutions
           that make our sites stand above the rest.
         </p>
@@ -661,79 +479,7 @@ export const Page19 = (props) => {
 
 export const Page19B = (props) => {
 
-  const plugins = [{
-    name: "Imagify",
-    cost1: 100.00,
-    cost2: 126.00,
-  },
-  {
-    name: "Kadence Membership Bundle (Kadence Blocks, Pro Theme)",
-    cost1: 169.00,
-    cost2: 213.00,
-  },
-  {
-    name: "MonsterInsights Pro ",
-    cost1: 100.00,
-    cost2: 126.00,
-  },
-  {
-    name: "SVG Support ",
-    cost1: 0.00,
-    cost2: "",
-  },
-  {
-    name: "The Events calendar",
-    cost1: 100.00,
-    cost2: 126.00
-  },
-  {
-    name: "wA11y",
-    cost1: 0.00,
-    cost2: ""
-  },
-  {
-    name: "Wordfence Security Premium",
-    cost1: 100.00,
-    cost2: 126.00
-  },
-  {
-    name: "WP Rocket",
-    cost1: 50.00,
-    cost2: 63.00
-  },
-  {
-    name: "WP Forms",
-    cost1: 100.00,
-    cost2: 126.00
-  },
-  {
-    name: "Yoast Local SEO",
-    cost1: 69.00,
-    cost2: 87.00
-  },
-  {
-    name: "Yoast Duplicate Post",
-    cost1: 0.00,
-    cost2: ""
-  },
-  {
-    name: "Yoast SEO",
-    cost1: 0.00,
-    cost2: ""
-  },
-  {
-    name: "Yoast SEO Premium",
-    cost1: 89.00,
-    cost2: 112.00
-  },
-  {
-    name: "Yoast Test Helper",
-    cost1: 0.00,
-    cost2: ""
-  }]
-  const sumCosts1 = plugins.reduce((acum, obj) => acum + (typeof (obj.cost1) === 'string' ? 0 : obj.cost1), 0);
-  const sumCosts2 = plugins.reduce((acum, obj) => acum + (typeof (obj.cost2) === 'string' ? 0 : obj.cost2), 0)
-
+  const plugins = pluginsA;
 
   return (
     <div>
@@ -745,36 +491,7 @@ export const Page19B = (props) => {
           <p>TRS best practices include several plugins to keep the Village of Harrison Hot Springs
             website secure, speedy, and accessible. Below is a list of our suggested build for your
             website.</p>
-          <div className="m2-8b_grid-container">
-            <div
-              className="m2-8_grid-item"
-              style={{
-                backgroundColor: "rgb(178,204,243)",
-                fontSize: "0.85rem",
-                fontWeight: "600",
-              }}
-            >
-              PLUGIN
-            </div>
-            <div
-              className="m2-8_grid-item"
-              style={{
-                backgroundColor: "rgb(178,204,243)",
-                fontSize: "0.85rem",
-                fontWeight: "600",
-              }}
-            >
-              YEARLY COST*
-            </div>
-            {plugins.map((e, index) => (
-              <>
-                <div className="m2-8_grid-item" key={index}>{e.name}</div>
-                <div className="m2-8_grid-item" >{e.cost1}.00 {e.cost2 !== "" ? `  //~ $ ${e.cost2}.00 CAD` : ""}</div>
-              </>
-            ))}
-            <div className="m2-8_grid-item"><strong> TOTAL / YEAR </strong></div>
-            <div className="m2-8_grid-item">{sumCosts1}.00 //~ {sumCosts2}</div>
-          </div>
+          <GridPlugins plugins={plugins} />
           <br />
           <strong>*First year plugin costs are included in all TRS development quotes. These costs are
             representative of recurring yearly subscriptions for premium plugins. If The Village
@@ -857,6 +574,8 @@ export const Page20 = (props) => {
 };
 
 export const Page21 = (props) => {
+  const items = module5;
+
   return (
     <div className="body">
       <FormHeader index={18}></FormHeader>
@@ -876,81 +595,7 @@ export const Page21 = (props) => {
         </p>
         <br></br>
         <br></br>
-        <div className="m5-0_grid-container">
-          <div className="m5-0_grid-item">Communication Type</div>
-          <div className="m5-0_grid-item">Description</div>
-          <div className="m5-0_grid-item">Frequency</div>
-          <div className="m5-0_grid-item">Format</div>
-          <div className="m5-0_grid-item">Participant/Distribution</div>
-          <div className="m5-0_grid-item">Deliverable</div>
-          <div className="m5-0_grid-item">Owner</div>
-          <div className="m5-0_grid-item">Kickoff Meeting</div>
-          <div className="m5-0_grid-item">
-            Initial meeting between project team and project sponsor
-          </div>
-          <div className="m5-0_grid-item">Within 10 first days</div>
-          <div className="m5-0_grid-item">Online</div>
-          <div className="m5-0_grid-item">
-            Project Sponsor,Team,and Stakeholders
-          </div>
-          <div className="m5-0_grid-item">
-            Set Expectations,Introductions,and Overview
-          </div>
-          <div className="m5-0_grid-item">Project Manager</div>
-          <div className="m5-0_grid-item">Weekly SITREP</div>
-          <div className="m5-0_grid-item">
-            Email situation report of project status
-          </div>
-          <div className="m5-0_grid-item">Weekly</div>
-          <div className="m5-0_grid-item">Email</div>
-          <div className="m5-0_grid-item">
-            Project Sponsor,Team,and Stakeholders
-          </div>
-          <div className="m5-0_grid-item">Situation Report</div>
-          <div className="m5-0_grid-item">Project Manager</div>
-          <div className="m5-0_grid-item">Weekly Project Team Meeting</div>
-          <div className="m5-0_grid-item">
-            Review action register and status
-          </div>
-          <div className="m5-0_grid-item">Weekly</div>
-          <div className="m5-0_grid-item">Online</div>
-          <div className="m5-0_grid-item">Project Team</div>
-          <div className="m5-0_grid-item">Updated Action Register</div>
-          <div className="m5-0_grid-item">Project Manager</div>
-          <div className="m5-0_grid-item">Project Monthly Review</div>
-          <div className="m5-0_grid-item">
-            Present metrics and status to team and sponsor
-          </div>
-          <div className="m5-0_grid-item">Monthly</div>
-          <div className="m5-0_grid-item">Online</div>
-          <div className="m5-0_grid-item">
-            Project Sponsor,Team,and Stakeholders
-          </div>
-          <div className="m5-0_grid-item">Status and Metric Presentation</div>
-          <div className="m5-0_grid-item">Project Manager</div>
-          <div className="m5-0_grid-item">Project Gate Reviews</div>
-          <div className="m5-0_grid-item">
-            Present closeout of project phases and kickoff next phase
-          </div>
-          <div className="m5-0_grid-item">As Needed</div>
-          <div className="m5-0_grid-item">Online</div>
-          <div className="m5-0_grid-item">
-            Project Sponsor,Team,and Stakeholders
-          </div>
-          <div className="m5-0_grid-item">
-            Phase completion report and phase kickoff
-          </div>
-          <div className="m5-0_grid-item">Project Manager</div>
-          <div className="m5-0_grid-item">Technical Design Reviews</div>
-          <div className="m5-0_grid-item">
-            Review of any technical designs or work associated with the project{" "}
-          </div>
-          <div className="m5-0_grid-item">As Needed</div>
-          <div className="m5-0_grid-item">Online</div>
-          <div className="m5-0_grid-item">Project Team</div>
-          <div className="m5-0_grid-item">Technical Design Package</div>
-          <div className="m5-0_grid-item">Project Manager</div>
-        </div>
+        <Grid5 items={items} />
       </div>
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
     </div>
@@ -958,176 +603,33 @@ export const Page21 = (props) => {
 };
 
 export const Page22 = (props) => {
+  const items1 = module5B;
+  const items2 = module5C;
+
+
   return (
     <div className="body">
       <FormHeader index={18}></FormHeader>
       <div className="text">
-        <br></br>
-        <p>
-          <strong>
-            PHASE I - INFORMATION GATHERING & EXISTING SITE ANALYSIS
-          </strong>
-        </p>
-        <br></br>
-        <div className="m5-1_grid-container">
-          <div className="m5-1_grid-item">
-            TASKS & OBJECTIVES
-          </div>
-          <div className="m5-1_grid-item">
-            DELIVERABLES
-          </div>
-          <div className="m5-1_grid-item">
-            ● Stakeholder Meeting & Needs Assessment Session
-          </div>
-          <div className="m5-1_grid-item">
-            ● Needs Assessment
-          </div>
-          <div className="m5-1_grid-item">
-            ● Site Mission Objectives
-          </div>
-          <div className="m5-1_grid-item">
-            ● Detailed work plan outlining key milestone and delivery dates
-          </div>
-          <div className="m5-1_grid-item">
-            ● User Persona Discovery (Roles)
-          </div>
-          <div className="m5-1_grid-item">
-            ● Brand Guide (Visual + Writing)
-          </div>
-          <div className="m5-1_grid-item">
-            ● Analytical Audit Review
-          </div>
-          <div className="m5-1_grid-item">
-            ● Content Migration Plan sign-off
-          </div>
-          <div className="m5-1_grid-item">
-            ● UX Normalization
-          </div>
-          <div className="m5-1_grid-item"></div>
-          <div className="m5-1_grid-item">
-            ● Create Content Plan for Migration
-          </div>
-          <div className="m5-1_grid-item"></div>
-          <div className="m5-1_grid-item">
-            ● Content Management System Confirmation
-          </div>
-          <div className="m5-1_grid-item"></div>
-          <div className="m5-1_grid-item">
-            ● Brand Discovery Audit
-          </div>
-          <div className="m5-1_grid-item"></div>
-        </div>
-        <br></br>
-        <p>
-          <strong>PHASE II - STAGING SITE SETUP & CUSTOMER SIGN-OFF</strong>
-        </p>
-        <br></br>
-        <div className="m5-1_grid-container">
-          <div className="m5-1_grid-item">TASKS & OBJECTIVES </div>
-          <div className="m5-1_grid-item">DELIVERABLES </div>
-          <div className="m5-1_grid-item">● Sitemap Creation</div>
-          <div className="m5-1_grid-item">
-            ● Wireframe/Storyboard sign-off & presentation to council
-          </div>
-          <div className="m5-1_grid-item">● CMS Install & Config</div>
-          <div className="m5-1_grid-item">● Sitemap sign-off</div>
-          <div className="m5-1_grid-item">
-            ● Best Practices Plugins Install & Configuration
-          </div>
-          <div className="m5-1_grid-item">
-            ● Public Consultation via two focus groups & one follow up open
-          </div>
-          <div className="m5-1_grid-item">
-            ● Lo-fi Wireframes/Storyboard Creation
-          </div>
-          <div className="m5-1_grid-item"></div>
-          <div className="m5-1_grid-item">● Template Styling</div>
-          <div className="m5-1_grid-item"></div>
-          <div className="m5-1_grid-item">● Start Content Migration</div>
-          <div className="m5-1_grid-item"></div>
-          <div className="m5-1_grid-item">
-            ● Initial Accessibility Assessment
-          </div>
-          <div className="m5-1_grid-item"></div>
-          <div className="m5-1_grid-item">● Feedback Changes</div>
-          <div className="m5-1_grid-item"></div>
-        </div>
-      </div >
+        <Grid6 phase={0} title="PHASE I - INFORMATION GATHERING & EXISTING SITE ANALYSIS" items={items1} />
+        <Grid6 phase={0} title="PHASE II - STAGING SITE SETUP & CUSTOMER SIGN-OFF" items={items2} />
+      </div>
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
     </div >
   );
 };
 
 export const Page23 = (props) => {
+
+  const items3 = module5D;
+  const items4 = module5E;
+
   return (
     <div className="body">
       <FormHeader index={19}></FormHeader>
       <div className="text">
-        <br></br>
-        <p>
-          <strong>PHASE III - API INTEGRATIONS</strong>
-        </p>
-        <br></br>
-        <div className="m5-1_grid-container phase-iii">
-          <div className="m5-1_grid-item ">
-            TASKS & OBJECTIVES
-          </div>
-          <div className="m5-1_grid-item">
-            DELIVERABLES
-          </div>
-          <div className="m5-1_grid-item">
-            ● Social Media (Facebook, Instagram, Twittter, etc.)
-          </div>
-          <div className="m5-1_grid-item">
-            ● Functioning Social Media integration on the staging site
-          </div>
-          <div className="m5-1_grid-item">
-            ● E-marketing solutions
-          </div>
-          <div className="m5-1_grid-item">
-            ● Functioning E-marketing solution on the staging site
-          </div>
-          <div className="m5-1_grid-item">
-            ● MAIS
-          </div>
-          <div className="m5-1_grid-item">
-            ● MAIS , ClvicWeb, and Filepro connections established
-          </div>
-          <div className="m5-1_grid-item">
-            ● ClvibWeb
-          </div>
-          <div className="m5-1_grid-item"></div>
-          <div className="m5-1_grid-item">
-            ● Filepro
-          </div>
-          <div className="m5-1_grid-item"></div>
-          <div className="m5-1_grid-item">
-            ● Feedback changes
-          </div>
-          <div className="m5-1_grid-item"></div>
-        </div >
-        <br></br>
-        <p>
-          <strong>PHASE IV - FINAL AUDIT</strong>
-        </p>
-        <br></br>
-        <div className="m5-1_grid-container phase-iv" >
-          <div className="m5-1_grid-item">TASKS & OBJECTIVES </div>
-          <div className="m5-1_grid-item">DELIVERABLES </div>
-          <div className="m5-1_grid-item">
-            ● Page by-page Perfonmance Optimized with Lighthouse Tests
-          </div>
-          <div className="m5-1_grid-item">● Perfomance summary report</div>
-          <div className="m5-1_grid-item">
-            ● Comprehensive Page-by-Page WCAG 2.0 AA Tests. Through a
-            combination of open source and paid 3 rd party tools, we perform a
-            page-by-page analysis ensuring the site meets WCAG 2.0 AA
-            requiremetns.{" "}
-          </div>
-          <div className="m5-1_grid-item">● Accesibility summary report</div>
-          <div className="m5-1_grid-item">● Final Feedback Changes</div>
-          <div className="m5-1_grid-item"></div>
-        </div >
+        <Grid6 phase={3} title="PHASE III - API INTEGRATIONS" items={items3} />
+        <Grid6 phase={4} title="PHASE IV - FINAL AUDIT" items={items4} />
       </div >
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
     </div >
@@ -1135,64 +637,19 @@ export const Page23 = (props) => {
 };
 
 export const Page24 = (props) => {
+
+  const items5 = module5F;
+  const items6 = module5G;
+
   return (
     <div className="body">
       <FormHeader index={18}></FormHeader>
       <div className="text">
-        <br></br>
-        <p>
-          <strong>PHASE V - DOCUMENTATION</strong>
-        </p>
-        <br></br>
-        <div className="m5-1_grid-container phase-v">
-          <div className="m5-1_grid-item">
-            TASKS & OBJECTIVES
-          </div>
-          <div className="m5-1_grid-item">
-            DELIVERABLES
-          </div>
-          <div className="m5-1_grid-item">
-            ● Stakeholder Training
-          </div>
-          <div className="m5-1_grid-item">
-            ● Stakeholder Training
-          </div>
-          <div className="m5-1_grid-item">
-            ● Documentation Generation
-          </div>
-          <div className="m5-1_grid-item">
-            ● Documentation handover
-          </div>
-          <div className="m5-1_grid-item">
-            ● Technical Specifications Executive Report
-          </div>
-          <div className="m5-1_grid-item">
-            ● Submission of final report outlining work completed, costs and
-            work remaining
-          </div>
-        </div>
-        <br></br>
-        <p>
-          <strong>PHASE VI - LAUNCH AND SUPPORT</strong>
-        </p>
-        <br></br>
-        <div className="grid-containerPage22 phase-vi">
-          <div className="m5-1_grid-item">TASKS & OBJECTIVES </div>
-          <div className="m5-1_grid-item">DELIVERABLES </div>
-          <div className="m5-1_grid-item">● Website Launch</div>
-          <div className="m5-1_grid-item">● Website Launch</div>
-          <div className="m5-1_grid-item">
-            ● Post-Launch Support (up to 6 hours included) + 6-Month warranty
-            for defects
-          </div>
-          <div className="m5-1_grid-item">
-            ● Post-Launch Support (up to 6 hours included) + 6-Month warranty
-            for defects
-          </div>
-        </div>
-      </div>
+        <Grid6 phase={5} title="PHASE V - DOCUMENTATION" items={items5} />
+        <Grid6 phase={6} title="PHASE VI - LAUNCH AND SUPPORT" items={items6} />
+      </div >
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
-    </div>
+    </div >
   );
 };
 

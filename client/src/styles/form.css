@@ -335,6 +335,7 @@ footer 15% */
 	justify-content:center;
 }
  /* This one is for the plugins */
+
 .m2-8b_grid-container {
 	display: grid;
 	grid-template-columns: repeat(2, 250px);
