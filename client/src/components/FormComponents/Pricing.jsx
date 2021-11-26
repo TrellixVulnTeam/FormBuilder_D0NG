@@ -6,7 +6,7 @@ import { Button2 } from "../StyledComponents/Buttons";
 const Pricing = (props) => {
   return (
     <>
-      <FormCard>
+      <FormCard width="60%">
         <RadioButton
           title="Should the pricing be included as a separate document?"
           option1="Yes"
@@ -17,7 +17,7 @@ const Pricing = (props) => {
         ></RadioButton>
       </FormCard>
       {props.state.addPricing === "Yes" ?
-        <FormCard>
+        <FormCard width="60%">
           <Button2 title="Select the size of the project " />
           <RadioButton
             title="Choose currency"

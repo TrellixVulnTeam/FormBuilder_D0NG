@@ -9,10 +9,10 @@ import Spinner from 'react-bootstrap/Spinner'
 import ClipLoader from "react-spinners/ClipLoader";
 
 const Div = styled.div`
-  width: 100%;
+  width:${props => props.width ? props.width : "100%"};
   display: flex; 
   flex-direction: column;
-  align-item:center;
+  align-items:center;
 `
 const FormReferences = (props) => {
   const { references } = props;
@@ -58,10 +58,21 @@ const FormReferences = (props) => {
     ));
   };
 
+  const clip = <ClipLoader size={75} loading={true} color={"#000000"} />
+
+  const charging = props.references.length === 0 ? "" :
+    props.references.map((reference, index) =>
+      <>
+        <Div key={index}>
+          <li key={reference.name}><strong key={reference.name}>Reference</strong></li>
+          <p>{reference.name}</p>
+          <ClassicButton color="red">+</ClassicButton>
+        </Div >
+      </>)
+
   return (
-    <>
-      <Spinner animation="border" variant="primary" />
-      <FormCard>
+    <><Div>
+      <FormCard height="none" width="60%">
         <RadioButton
           title="Would you like to add References"
           option1="Yes"
@@ -72,17 +83,18 @@ const FormReferences = (props) => {
         ></RadioButton>
       </FormCard>
       {props.loading ?
-        <>{props.state.addReferences !== "No" ? createReferences(references) : ""}
-          {props.references.length == 0 ? "" :
-            < FormCard >
-              {props.references.map(reference => <Div><li key={reference.name}><strong>Reference:   </strong>{reference.name}</li></Div>)}
-            </FormCard>
-          }
-        </>
+        <Div width="60%">{props.state.addReferences !== "No"
+          ? createReferences(references) : ""} </Div>
         : <ClipLoader size={75} loading={true} color={"#000000"} />}
+    </Div>
       {props.state.addReferences === "Yes" ?
-        < ClassicButton color="rgb(103, 227, 130)" onClick={props.addReference}>Add Member</ClassicButton>
-        : ""}
+        <>
+          <FormCard height="none" width="40%">{charging}
+            < ClassicButton color="rgb(103, 227, 130)" width="100%" onClick={props.addReference}>Add Member</ClassicButton>
+          </FormCard>
+        </> : ""}
+
+
     </>
   );
 };

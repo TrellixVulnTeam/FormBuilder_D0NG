@@ -6,7 +6,7 @@ export const PrintReference = ({ references }) => {
         <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
             {references.length !== 0 ? references.map((e, i) =>
                 i <= 6 ? (
-                    <Reference
+                    <Reference key={i}
                         name={e.name}
                         page={e.page}
                         referenceName={e.referenceName}

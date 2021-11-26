@@ -33,21 +33,21 @@ export const StyledInput = styled.div`
 `
 
 export const Input = (props) => {
-  const { title, value, onChange } = props;
 
   return (
     <StyledInput>
-      <h2>{title}</h2>
-      <input value={value} onChange={onChange(props.name)}></input>
-    </StyledInput>
+      <h2>{props.title}</h2>
+      <input value={props.value} onChange={props.onChange(props.name)}></input >
+    </StyledInput >
   );
 };
 
 export const InputReference = (props) => {
   return (
-    <StyledInput>
+    <StyledInput key={props.name}>
       <h2>{props.title}</h2>
       <input
+        key={props.name}
         value={props.value}
         onChange={props.onChange(props.id)(props.name)}
       ></input>
@@ -71,10 +71,11 @@ export const RadioButton = (props) => {
 
     <div>
       <p><strong>{props.title}</strong></p>
-      <div style={radioButton} onClick={props.handleChange(props.name)}>
+      <div style={radioButton}>
         <div>
           <p>{props.option1}</p>{" "}
           <input
+            onChange={props.handleChange(props.name)}
             style={{ width: "20px" }}
             type="radio"
             name={props.name}
@@ -85,6 +86,7 @@ export const RadioButton = (props) => {
         <div>
           <p>{props.option2}</p>{" "}
           <input
+            onChange={props.handleChange(props.name)}
             style={{ width: "20px" }}
             type="radio"
             name={props.name}

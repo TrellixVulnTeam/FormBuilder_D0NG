@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { useRef, useEffect } from "react"
 
 const NavBar = styled.div`
-    width: 50%;
-    flex: 1;
+    width: 20%;
     display:flex;
     flex-direction:column;
     justify-content: space-evenly;

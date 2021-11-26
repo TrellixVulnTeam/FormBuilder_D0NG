@@ -343,3 +343,37 @@ export const module5G = [
     "● Website Launch",
     "● Post-Launch Support (up to 6 hours included) + 6-Month warranty for defects",
     "● Post-Launch Support (up to 6 hours included) + 6-Month warranty for defects"]
+
+export const module6A = ["CHARGES",
+    "Fixed rate for entire project",
+    "$",
+    "Rate if the Village of Harrison Hot Springs requests changes to the",
+    "scope of work (hourly + tax)",
+    "$",
+    "Discount #NBKIL872NH",
+    "-$",
+    "Total Project Cost",
+    "$",
+    "X% PST",
+    "$",
+    "X% HST",
+    "$"]
+
+export const module6B = [
+    "● This proposal includes applicable taxes",
+    "● This proposal is in CAD",
+    "● Domain registration (if required) is charged independently of this proposal",
+    "● Hosting is not included. If required, hosting can be provided at additional cost as outlined in section 3.8 Ho",
+    "● Onsite travel, consultations, meetings are not included in this proposal. Physical travel (if required) will be at additional expense"]
+
+
+export const module7 = [
+    "● Response to your request for support assistance within24-business-hours, when properly submitted online, by phone, or by email.",
+    "● Assistance with any broken links that are reported to need fixing.",
+    "● Assistance with error messages and system loading problems reported by users.",
+    "● Assistance with problems experienced by users when attempting to play video and audio files or view and download images or documents.",
+    "● Assistance with viewing problems reported by users where your website is not displaying correctly in certain browser types defined in your contract (e.g. Internet Explorer and Firefox).",
+    "● Assistance with any queries or problems arising with the CMS database system.",
+    "● Picture Updates – adding, editing, and sizing of any pictures to the existing website which does not fall under the scope of the layout or actual design of the existing website.",
+    "● Text Updates – adding, editing, and/or removing any text or copy on the existing site, including any articles, reports, contact information, and product or service description.",
+    "● Functionality – ensuring all links/images are working correctly and examining the overall health and proper functionality of thewebsite. Additional requests for Search/Filtering/Content/Design/Layout/Programming."]

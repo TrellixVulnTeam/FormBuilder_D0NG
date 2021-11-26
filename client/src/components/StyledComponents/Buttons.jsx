@@ -79,11 +79,11 @@ const Button = styled.div`
 
 
 export const ClassicButton = styled.div`
-    background:${props => props.color ? props.color : "black"};
+    background: ${props => props.color === true ? "rgb(103, 227, 130)" : "rgb(231, 106, 106)"};
     border-radius: 4px;
     font-size: 14pxrem;
     font-weight: 800;
-    width: 35%;
+    width: ${props => props.width ? props.width : "35%"};
     margin: 20px;
     padding: 0.4em;
     box-shadow: none;
@@ -99,5 +99,6 @@ export const ClassicButton = styled.div`
     &:focus-within{
         background:#ffffff;
     }
+
 
 `

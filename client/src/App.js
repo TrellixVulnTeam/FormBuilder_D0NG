@@ -9,7 +9,8 @@ import { useState } from "react";
 import { FormToPrint } from "./components/AppComponents/FormToPrint";
 import styled from "styled-components";
 import Circle from "./components/StyledComponents/Circle"
-import { GlassButton } from "./components/StyledComponents/Buttons";
+import { GlassButton, ClassicButton } from "./components/StyledComponents/Buttons";
+
 
 
 const Main = styled.main`
@@ -26,7 +27,7 @@ const Main = styled.main`
 `
 
 const Glass = styled.div`
-  width: 70%;
+  width: 80%;
   min-height: 80vh;
   background: linear-gradient(
     to right bottom,
@@ -43,12 +44,12 @@ const Glass = styled.div`
 
 const Display = styled.div`
       position: relative;
-      flex:2;
       display:flex;
       flex-direction:column;
-      justify-content:space-evenly;
+      overflow-y:hidden;
+      overflow-x:hidden;
       align-items:center;
-      height: 100%;
+      width: 80%;
 `
 
 
@@ -96,9 +97,11 @@ function App() {
   const handleChange = (input) => (e) => {
     setState({
       ...state,
-      [input]: e.target.type === "checkbox" ? e.target.checked : e.target.value,
+      [input]: e.target.type === "checkbox" ? e.target.checked : e.target.value
     });
   };
+
+
 
   //This related to the part 2.5 of the form
 
@@ -136,6 +139,8 @@ function App() {
     }
   };
 
+
+
   const deleteReference = () => (e) => {
 
     let array = references.filter((element) => element.id !== e.target.id);
@@ -148,7 +153,8 @@ function App() {
   console.log(references)
   const [members, setMember] = useState([]);
 
-  const submitMember = (memberInput) => {
+
+  const submitAllMembers = (memberInput) => {
     if (Array.isArray(memberInput)) {
       let array = []
       memberInput.forEach(e => array.push(e))
@@ -161,8 +167,15 @@ function App() {
     }
   };
 
+  // Function to handle the selection and unselection of elements in the form
+
+  const selectMember = (index) => {
+    setMember(members.map((el, i) => (i === index) ? { ...el, selected: !el.selected } : el))
+  }
 
   const deleteMember = (index) => {
+    array[index].selected = !array[index].selected
+    console.log(array[index])
     let array = members.filter((element, i) => index.i !== i);
     setMember(array);
   };
@@ -196,12 +209,17 @@ function App() {
     setnmbPage(nmbPage - 1)
     // scrollToTop();
   };
+  console.log(members);
+  const [readyToPrint, setReadyToPrint] = useState(false)
 
   return (
     <div className="container">
       <header>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          rel="stylesheet" type='text/css'></link>
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
           rel="stylesheet"
@@ -212,7 +230,6 @@ function App() {
           href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap"
           rel="stylesheet"
         ></link>
-        <button onClick={handlePrint}>Print this out!</button>
       </header>
       <form style={{ textAlign: "center" }}>
         <Header />
@@ -231,8 +248,9 @@ function App() {
                 deleteReference={deleteReference}
                 addReference={addReference}
                 members={members}
-                submitMember={submitMember}
+                submitAllMembers={submitAllMembers}
                 deleteMember={deleteMember}
+                selectMember={selectMember}
                 nmbPage={nmbPage}
                 setnmbPage={setnmbPage}
                 setReference={setReference}
@@ -245,6 +263,7 @@ function App() {
               <GlassButton onClick={() => nextPage()}>{">"}</GlassButton>
             </div>
           </Glass>
+          {/* < ClassicButton color="rgb(103, 227, 130)" onClick={handlePrint} >Print this out!</ClassicButton> */}
         </ Main>
         <Circle top="10%" right="10%" />
         <Circle top="95%" right="75%" />

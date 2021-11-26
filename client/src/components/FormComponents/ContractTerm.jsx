@@ -10,7 +10,7 @@ const ContractTerm = (props) => {
     props.handleForm("typeofContract")(e);
   };
   return (
-    <div style={{ height: "100%" }}>
+    <div style={{ height: "100%" }} >
       <h1> Contract Term</h1><br />
       <p>Select the type of contract</p>
       <br></br>

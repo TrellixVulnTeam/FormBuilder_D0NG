@@ -5,10 +5,11 @@ import FormHeader from "./FormHeader";
 import FormFooter from "./FormFooter";
 import TeamMember from "./TeamMember";
 import DefaultPage from "./DefaultPage";
-import { names, text, items2_7, items2_7b, items2_7c, skills3, skillsB, skillsA, skillsC, TRSTeam, pluginsA, module5, module5B, module5F, module5E, module5D, module5C, module5G } from "./CONST_Portfolio";
+import { names, text, items2_7, items2_7b, items2_7c, skills3, skillsB, skillsA, skillsC, TRSTeam, pluginsA, module5, module5B, module5F, module5E, module5D, module5C, module5G, module6B, module7, module6A } from "./CONST_Portfolio";
 import { Grid1 } from "./Grids/Grid1";
 import { PrintReference } from "./FormToPrintReferences";
 import { Grid2, Grid3, GridPlugins, Grid5, Grid6 } from "./Grids/Grid2";
+import { Container } from "react-bootstrap";
 
 export const FirstPage = (props) => {
   return (
@@ -419,7 +420,7 @@ export const Portfolio = (props) => {
   }
   return (
     <>
-      {pages.map(page => <DefaultPage title={page.title} module={page.module} text={page.text} logo={LogoFirstPage} index={page.index} longName={props.longName} projectName={props.projectName}></DefaultPage>)}
+      {pages.map((page, index) => <DefaultPage key={"defaultPage" + index} title={page.title} module={page.module} text={page.text} logo={LogoFirstPage} index={page.index} longName={props.longName} projectName={props.projectName}></DefaultPage>)}
     </>
   )
 
@@ -450,8 +451,10 @@ export const Page19 = (props) => {
   let members = [];
 
   for (let i = 0; i < props.members.length; i++) {
-    members.push(props.members[i].name);
-    members.push(props.members[i].designation);
+    if (props.members[i].selected) {
+      members.push(props.members[i].name);
+      members.push(props.members[i].designation);
+    }
   }
 
 
@@ -491,7 +494,7 @@ export const Page19B = (props) => {
           <p>TRS best practices include several plugins to keep the Village of Harrison Hot Springs
             website secure, speedy, and accessible. Below is a list of our suggested build for your
             website.</p>
-          <GridPlugins plugins={plugins} />
+          <GridPlugins key="module7" plugins={plugins} title1="PLUGIN" title2="YEARLY COST *" />
           <br />
           <strong>*First year plugin costs are included in all TRS development quotes. These costs are
             representative of recurring yearly subscriptions for premium plugins. If The Village
@@ -654,6 +657,16 @@ export const Page24 = (props) => {
 };
 
 export const Page30 = (props) => {
+
+  const items = module6A;
+  //CSS de los items a agregar
+  // fontSize: "0.85rem",
+  // fontWeight: "600",
+  // y del Container
+  //             gridTemplateRows: "repeat(2,30px) 80px repeat(3,30px)",
+  //           fontSize: "1rem",
+  const items2 = module6B
+
   return (
     <div className="body">
       <FormHeader index={30}></FormHeader>
@@ -664,49 +677,7 @@ export const Page30 = (props) => {
           The table below details the cost associated with the website audit and
           design services:
         </p>
-        <div
-          className="m2-8_grid-container"
-          style={{
-            gridTemplateRows: "repeat(2,30px) 80px repeat(3,30px)",
-            fontSize: "1rem",
-          }}
-        >
-          <div
-            className="m2-8_grid-item"
-            style={{
-              backgroundColor: "rgb(178,204,243)",
-              fontSize: "0.85rem",
-              fontWeight: "600",
-            }}
-          >
-            TASK
-          </div>
-          <div
-            className="m2-8_grid-item"
-            style={{
-              backgroundColor: "rgb(178,204,243)",
-              fontSize: "0.85rem",
-              fontWeight: "600",
-            }}
-          >
-            CHARGES
-          </div>
-          <div className="m2-8_grid-item">Fixed rate for entire project</div>
-          <div className="m2-8_grid-item">$</div>
-          <div className="m2-8_grid-item">
-            Rate if the Village of Harrison Hot Springs requests changes to the
-            scope of work (hourly + tax)
-          </div>
-          <div className="m2-8_grid-item">$</div>
-          <div className="m2-8_grid-item">Discount #NBKIL872NH</div>
-          <div className="m2-8_grid-item">-$</div>
-          <div className="m2-8_grid-item">Total Project Cost</div>
-          <div className="m2-8_grid-item">$</div>
-          <div className="m2-8_grid-item">X% PST</div>
-          <div className="m2-8_grid-item">$</div>
-          <div className="m2-8_grid-item">X% HST</div>
-          <div className="m2-8_grid-item">$</div>
-        </div>
+        <GridPlugins plugins={items} title1="TASK" title2="CHARGES" />
         <p>
           <strong>Discount Disclosure:</strong> The one-time discount applied
           exclusively and solely for the purpose of affording ThirdRock Systems
@@ -720,21 +691,7 @@ export const Page30 = (props) => {
           className="list"
           style={{ marginLeft: "40px", padding: "1px", fontSize: "1rem" }}
         >
-          <div>● This proposal includes applicable taxes</div>
-          <div>● This proposal is in CAD</div>
-          <div>
-            ● Domain registration (if required) is charged independently of this
-            proposal
-          </div>
-          <div>
-            ● Hosting is not included. If required, hosting can be provided at
-            additional cost as outlined in section 3.8 Ho
-          </div>
-          <div>
-            ● Onsite travel, consultations, meetings are not included in this
-            proposal. Physical travel (if required) will be at additional
-            expense
-          </div>
+          {items2.map((item, i) => <div key={i}>{item}</div>)}
         </div>
       </div>
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
@@ -743,6 +700,9 @@ export const Page30 = (props) => {
 };
 
 export const Page32 = (props) => {
+  const items = module7
+
+
   return (
     <div className="body">
       <FormHeader index={32}></FormHeader>
@@ -766,47 +726,7 @@ export const Page32 = (props) => {
           className="list"
           style={{ marginLeft: "40px", padding: "1px", fontSize: "1rem" }}
         >
-          <div>
-            ● Response to your request for support assistance within
-            24-business-hours, when properly submitted online, by phone, or by
-            email.
-          </div>
-          <div>
-            ● Assistance with any broken links that are reported to need fixing.
-          </div>
-          <div>
-            ● Assistance with error messages and system loading problems
-            reported by users.
-          </div>
-          <div>
-            ● Assistance with problems experienced by users when attempting to
-            play video and audio files or view and download images or documents.
-          </div>
-          <div>
-            ● Assistance with viewing problems reported by users where your
-            website is not displaying correctly in certain browser types defined
-            in your contract (e.g. Internet Explorer and Firefox).
-          </div>
-          <div>
-            ● Assistance with any queries or problems arising with the CMS
-            database system.
-          </div>
-          <div>
-            ● Picture Updates – adding, editing, and sizing of any pictures to
-            the existing website which does not fall under the scope of the
-            layout or actual design of the existing website.
-          </div>
-          <div>
-            ● Text Updates – adding, editing, and/or removing any text or copy
-            on the existing site, including any articles, reports, contact
-            information, and product or service description.
-          </div>
-          <div>
-            ● Functionality – ensuring all links/images are working correctly
-            and examining the overall health and proper functionality of the
-            website. Additional requests for
-            Search/Filtering/Content/Design/Layout/Programming.
-          </div>
+          {items.map((item, i) => <div key={i}>{item}</div>)}
         </div>
       </div>
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
@@ -822,12 +742,11 @@ export const Page33 = (props) => {
   // ]);
   //Passing the relevant skills and link of the cv later we can add buttons.
 
-
+  const selectedMembers = props.members.filter(e => e.selected === true)
   return (
     <div className="body">
       <FormHeader></FormHeader>
-
-      <div className="text">
+      <div className="text" key="pricing">
         <h1> A - TEAM RESUMES</h1>
         <br></br>
         <p>
@@ -836,15 +755,15 @@ export const Page33 = (props) => {
           corresponding file names shown below.
         </p>
         <br></br>
-        <div className="m7-0_grid-container">
-          <div className="m7-0_grid-item">Name</div>
-          <div className="m7-0_grid-item">Resume</div>
-          <div className="m7-0_grid-item">Relevant Skills</div>
-          {props.members.map((element) => (element.skills !== "x" ?
+        <div className="m7-0_grid-container" key="module7">
+          <div className="m7-0_grid-item" key="option1">Name</div>
+          <div className="m7-0_grid-item" key="option2">Resume</div>
+          <div className="m7-0_grid-item" key="option3">Relevant Skills</div>
+          {selectedMembers.map((element, index) => (element.skills !== "x" ?
             <>
-              <div className="m7-0_grid-item">{element.name}</div>
-              <div className="m7-0_grid-item">{element.cv}</div>
-              <div className="m7-0_grid-item">{element.skills}</div>
+              <div className="m7-0_grid-item" key={element.name + index}>{element.name}</div>
+              <a className="m7-0_grid-item" href={element.cv}>{element.cv}</a>
+              <div className="m7-0_grid-item" key={element.skills + index}>{element.skills}</div>
             </> : ""
           ))}
         </div>

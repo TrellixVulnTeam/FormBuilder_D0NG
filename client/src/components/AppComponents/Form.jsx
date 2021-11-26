@@ -6,15 +6,14 @@ import ContractTerm from "../FormComponents/ContractTerm";
 import GeneralInformation from "../FormComponents/GeneralInformation";
 import Pricing from "../FormComponents/Pricing";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 
 
 const ScrollBar = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
     overflow-y: scroll;
-    max-height: 75vh;
     width: 100%;
+    overflow-x: hidden;
 
     &::-webkit-scrollbar{
       width:1em;
@@ -55,21 +54,22 @@ export const FormCard = styled.div`
     margin:2rem;
     padding:2rem;
     box-shadow: 6px 6px 20px rgba(122,122,122,0.4);
-    width:60%;
-    height:100%;
+    width:${props => props.width ? props.width : "100%"};
+    height:${props => props.height ? props.height : "100%"};
     align-items:center;
     flex:${props => props.flex ? props.flex : ""};
 `
 
 const Form = (props) => {
 
-  // This function will submit the members to the component App
 
+  // This function will submit the members to the component App
+  console.log(props.change)
   switch (props.nmbPage) {
     case 1:
       return (
         <>
-          <FormCard>
+          <FormCard width="60%">
             <GeneralInformation
               state={props.state}
               change={props.change}
@@ -79,8 +79,8 @@ const Form = (props) => {
       );
     case 2:
       return (
-        <div style={{
-          overflowY: "scroll", maxHeight: "75vh", width: "100%", display: "flex", flexDirection: "column", alignItems: "center"
+        <div className="hola" style={{
+          overflowY: "scroll", minHeight: "65vh", maxHeight: "75vh", width: "100%", display: "flex"
         }}>
           <FormReferences
             references={props.references}
@@ -92,7 +92,7 @@ const Form = (props) => {
             change={props.change}
             setLoading={props.setLoading}
             loading={props.loading}
-          ></FormReferences> : ""
+          ></FormReferences>
         </div>
       );
     case 3:
@@ -100,7 +100,8 @@ const Form = (props) => {
         <ScrollBar>
           <FormMembers
             state={props.state}
-            submit={props.submitMember}
+            submitAllMembers={props.submitAllMembers}
+            selectMember={props.selectMember}
             members={props.members}
             delete={props.deleteMember}
             change={props.change}
@@ -111,7 +112,7 @@ const Form = (props) => {
     case 4:
       return (
         <>
-          <FormCard>
+          <FormCard width="60%">
             <ContractTerm
               handleForm={props.change}
               state={props.state}

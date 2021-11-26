@@ -1,5 +1,7 @@
 import { Input } from "../StyledComponents/Inputs";
 const GeneralInformation = (props) => {
+
+  console.log(props.change)
   return (
     <>
       <Input
