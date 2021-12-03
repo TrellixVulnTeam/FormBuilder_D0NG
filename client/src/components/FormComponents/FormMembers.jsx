@@ -5,6 +5,8 @@ import { FormCard } from "../AppComponents/Form";
 import { ClassicButton } from "../StyledComponents/Buttons";
 import { useEffect, useState, useCallback } from "react";
 import ClipLoader from "react-spinners/ClipLoader"
+import ButtonAddRemove from "./ButtonAddRemove";
+
 
 const Div = styled.div`
   width: 100%;
@@ -13,6 +15,7 @@ const Div = styled.div`
   align-item:center;
   flex: ${props => props.flex ? props.flex : "none"};
   align-items:center;
+  transition:10s;
 `
 // const Li = styled.li`
 //   margin-left:5rem;
@@ -80,13 +83,17 @@ const FormMembers = (props) => {
   // which will be pass to the booleanArray
   const sizeofMembers = () => {
     let selectedMembers = props.members.map(member => member.selected)
-    selectedMembers = [...selectedMembers, true, true, true, true, true, true, true]
+    selectedMembers = [...selectedMembers, Array(6).fill(true)]
+    console.log(selectedMembers)
     return selectedMembers
 
 
   }
+
   const [boolMembers, setArray] = useState(sizeofMembers);
 
+  // This is an onClick function this will change the array when we add or delete a member
+  // First line is to handle the Members , the second one to handle de BooleanArray of the Members
   const changeColor = (e, index) => {
     props.selectMember(index)
     setArray(boolMembers.map((element, i) => i - 1 === parseInt(index - 1) ? !element : element))
@@ -98,7 +105,22 @@ const FormMembers = (props) => {
     console.log(members)
   }, [boolMembers])
 
+  // while the loading is false , an icon of loading will be shown.
+
   const [loading, setLoading] = useState(false);
+
+  // This is a return of the members dependending if we want to add them or not.
+
+  const RenderingMembers = () => {
+    return (
+      loading ?
+        <Div flex={1}>
+          < FormCard flex={1} width="70%" height="none" >
+            <ButtonAddRemove array={members} booleanArray={boolMembers} title="Member" changeColor={changeColor}></ButtonAddRemove>
+          </FormCard >
+        </Div >
+        : "")
+  }
 
   return (
     <>
@@ -146,24 +168,11 @@ const FormMembers = (props) => {
                 onChange={setMemberInput}
               />
             </div>
-            <ClassicButton color={true} onClick={(e) => addMember(e, memberInput)}>Add New Member</ClassicButton>
+            <ClassicButton color={true} width="60%" onClick={(e) => addMember(e, memberInput)}>Add new Member</ClassicButton>
           </FormCard>
           : ""}
       </Div>
-      {
-        loading ?
-          <Div flex={1}>
-            <FormCard flex={1} width="70%" height="none">
-              {members.map((e, i) => (
-                <Div key={i + "member"} >
-                  <li key={e.name}><strong>Member:   </strong>{e.name}</li>
-                  {boolMembers[i] === true ? <Div style={{ flexDirection: "row" }}><ClassicButton key={i} width="60%" onClick={(e) => changeColor(e, i)}>Delete Member</ClassicButton><i class="far fa-check-circle"></i></Div> : <ClassicButton color={true} width="60%" onClick={(e) => changeColor(e, i)}>Add Member</ClassicButton>}
-                </Div>
-              ))}
-            </FormCard>
-          </Div>
-          : <ClipLoader size={75} loading={true} color={"#000000"} />
-      }
+      {RenderingMembers()}
 
     </>
   );

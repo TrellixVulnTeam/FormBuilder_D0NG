@@ -10,6 +10,7 @@ import { FormToPrint } from "./components/AppComponents/FormToPrint";
 import styled from "styled-components";
 import Circle from "./components/StyledComponents/Circle"
 import { GlassButton, ClassicButton } from "./components/StyledComponents/Buttons";
+import PageFooter from "./components/AppComponents/PageFooter";
 
 
 
@@ -24,6 +25,8 @@ const Main = styled.main`
     align-items:center;
     justify-content:center;
     z-index:-6;
+    flex-direction:column;
+    margin-bottom:5px;
 `
 
 const Glass = styled.div`
@@ -129,6 +132,7 @@ function App() {
           referenceName: "",
           phone: "",
           email: "",
+          selected: true
         },
       ];
       array[array.length - 1]["id"] = String(array.length - 1);
@@ -147,6 +151,10 @@ function App() {
     console.log(array);
     setReference(array);
   };
+
+  const selectReference = (index) => {
+    setReference(references.map((el, i) => (i === index) ? { ...el, selected: !el.selected } : el))
+  }
 
   // Array that will handle team members from the section 2.8
 
@@ -175,7 +183,6 @@ function App() {
 
   const deleteMember = (index) => {
     array[index].selected = !array[index].selected
-    console.log(array[index])
     let array = members.filter((element, i) => index.i !== i);
     setMember(array);
   };
@@ -200,7 +207,6 @@ function App() {
 
   const nextPage = () => {
     setnmbPage(nmbPage + 1);
-    console.log()
 
     // scrollToTop();
   };
@@ -209,7 +215,6 @@ function App() {
     setnmbPage(nmbPage - 1)
     // scrollToTop();
   };
-  console.log(members);
   const [readyToPrint, setReadyToPrint] = useState(false)
 
   return (
@@ -263,11 +268,13 @@ function App() {
               <GlassButton onClick={() => nextPage()}>{">"}</GlassButton>
             </div>
           </Glass>
-          {/* < ClassicButton color="rgb(103, 227, 130)" onClick={handlePrint} >Print this out!</ClassicButton> */}
+          < ClassicButton color="rgb(103, 227, 130)" onClick={handlePrint} >Print this out!</ClassicButton>
         </ Main>
         <Circle top="10%" right="10%" />
         <Circle top="95%" right="75%" />
       </form>
+      <PageFooter>
+      </PageFooter>
       <FormToPrint
         ref={componentRef}
         values={state}

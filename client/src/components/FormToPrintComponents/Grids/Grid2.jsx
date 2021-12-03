@@ -138,7 +138,6 @@ export const Grid6 = ({ phase, title, items }) => {
             className = "";
 
     }
-    console.log("m5-1_grid-container" + className)
 
     return (
         <>

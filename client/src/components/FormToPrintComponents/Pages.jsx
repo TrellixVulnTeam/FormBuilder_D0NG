@@ -327,9 +327,10 @@ export const FifthPage = (props) => {
 
 export const PageSix = (props) => {
   const skills1 = skillsB
-
   const skills2 = skillsC
-  console.log(props.references)
+
+  const references = props.references.filter(reference => reference.selected)
+
   return (
     <div className="body">
       <FormHeader index={5}></FormHeader>
@@ -338,7 +339,7 @@ export const PageSix = (props) => {
         <Grid1 title="Programming Analytics" skills={skills2} />
         <h3>2.5 REFERENCES</h3>
         <br></br>
-        <PrintReference references={props.references}></PrintReference>
+        <PrintReference references={references}></PrintReference>
       </div>
       <FormFooter name={props.longName + " " + props.projectName}></FormFooter>
     </div>

@@ -58,13 +58,13 @@ export const FormCard = styled.div`
     height:${props => props.height ? props.height : "100%"};
     align-items:center;
     flex:${props => props.flex ? props.flex : ""};
+    min-width: 400px
 `
 
 const Form = (props) => {
 
 
   // This function will submit the members to the component App
-  console.log(props.change)
   switch (props.nmbPage) {
     case 1:
       return (
@@ -129,6 +129,10 @@ const Form = (props) => {
           ></Pricing>
         </>
       );
+    case 6:
+      return (
+        <h1></h1>
+      )
   }
 };
 
